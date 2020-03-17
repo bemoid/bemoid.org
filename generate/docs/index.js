@@ -4,6 +4,11 @@ const slugify = require('slugify')
 const { paths } = require('../../app.config')
 const { files, process, generate } = require('../lib/generate')
 
+/**
+ * Generates documentation data files from Bemoid's components `.md` files.
+ *
+ * @returns {void}
+ */
 module.exports = () => {
   files(`${paths.bemoid}/**/!(LICENSE|README).md`, (files) => {
     process(files, (content) => {
