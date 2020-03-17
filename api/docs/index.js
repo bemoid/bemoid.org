@@ -3,25 +3,25 @@ const fse = require('fs-extra')
 
 const { paths } = require('../../app.config')
 
-exports.getDocsPages = async () => {
+exports.getAllDocs = async () => {
   try {
-    const files = await fg(`${paths.json}/docs/*.json`)
+    const files = await fg(`${paths.data}/docs/*.json`)
 
     return files.map((file) => {
-      const json = fse.readJsonSync(file)
+      const content = fse.readJsonSync(file)
 
-      return json
+      return content
     })
   } catch (error) {
     throw error
   }
 }
 
-exports.getDocsPage = async (slug) => {
+exports.getDocs = async (slug) => {
   try {
-    const json = await fse.readJson(`${paths.json}/docs/${slug}.json`)
+    const data = await fse.readJson(`${paths.data}/docs/${slug}.json`)
 
-    return json
+    return data
   } catch (error) {
     throw error
   }

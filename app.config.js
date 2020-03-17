@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   paths: {
-    json: path.resolve('resources/json'),
+    data: path.resolve('resources/data'),
     bemoid: path.resolve('node_modules/@bemoid/bemoid')
   }
 }

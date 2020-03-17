@@ -1,9 +1,9 @@
-import { Docs } from '../../src/pages/docs/docs'
+import { Docs } from '@pages/docs/docs'
 
-import { getDocsPages, getDocsPage } from '../../api/docs/index'
+import { getDocs, getAllDocs } from '@api'
 
 export async function getStaticProps ({ params }) {
-  const docs = await getDocsPage(params.slug)
+  const docs = await getDocs(params.slug)
 
   return {
     props: {
@@ -13,7 +13,7 @@ export async function getStaticProps ({ params }) {
 }
 
 export async function getStaticPaths () {
-  const docs = await getDocsPages()
+  const docs = await getAllDocs()
 
   const paths = docs.map((item) => ({
     params: { slug: item.attributes.slug }

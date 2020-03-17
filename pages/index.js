@@ -1,3 +1,3 @@
-import { Index } from '../src/pages/index/index'
+import { Index } from '@pages/index/index'
 
 export default Index
