@@ -1,4 +1,4 @@
-import { Docs } from '@pages/docs'
+import { DocsSingleView } from '@views/docs/single'
 
 import { getDocs, getAllDocs } from '@api'
 
@@ -22,4 +22,4 @@ export async function getStaticPaths () {
   return { paths, fallback: false }
 }
 
-export default Docs
+export default DocsSingleView

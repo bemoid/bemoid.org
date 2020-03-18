@@ -1,4 +1,4 @@
-import { Styleguide } from '@pages/styleguide'
+import { StyleguideSingleView } from '@views/styleguide/single'
 
 import { getStyleguide, getAllStyleguides } from '@api'
 
@@ -22,4 +22,4 @@ export async function getStaticPaths () {
   return { paths, fallback: false }
 }
 
-export default Styleguide
+export default StyleguideSingleView

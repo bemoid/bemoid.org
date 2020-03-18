@@ -5,7 +5,7 @@ const { paths } = require('../../app.config')
 const { generate } = require('../lib/generate')
 
 /**
- * Generates documentation data files from Bemoid's components `.md` files.
+ * Generates styleguides data files from Bemoid's components `.scss` files.
  *
  * @returns {void}
  */

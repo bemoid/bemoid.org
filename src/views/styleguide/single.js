@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const Styleguide = ({ header, description }) => {
+export const StyleguideSingleView = ({ header, description }) => {
   return (
     <div>
       <Head>

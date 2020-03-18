@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const Index = () => (
+export const IndexView = () => (
   <div>
     <Head>
       <title>Create Next App</title>

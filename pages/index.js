@@ -1,3 +1,3 @@
-import { Index } from '@pages/index/index'
+import { IndexView } from '@views/index'
 
-export default Index
+export default IndexView

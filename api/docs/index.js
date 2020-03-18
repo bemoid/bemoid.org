@@ -1,7 +1,4 @@
-const fg = require('fast-glob')
-const fse = require('fs-extra')
-
-const { paths } = require('../../app.config')
+const { readFile, readFiles } = require('../lib/io')
 
 /**
  * Gets data collection of all documentation pages.
@@ -9,17 +6,9 @@ const { paths } = require('../../app.config')
  * @returns object[]
  */
 exports.getAllDocs = async () => {
-  try {
-    const files = await fg(`${paths.data}/docs/*.json`)
+  const data = await readFiles('docs/*')
 
-    return files.map((file) => {
-      const content = fse.readJsonSync(file)
-
-      return content
-    })
-  } catch (error) {
-    throw error
-  }
+  return data
 }
 
 /**
@@ -29,11 +18,7 @@ exports.getAllDocs = async () => {
  * @returns object
  */
 exports.getDocs = async (slug) => {
-  try {
-    const data = await fse.readJson(`${paths.data}/docs/${slug}.json`)
+  const data = await readFile(`docs/${slug}`)
 
-    return data
-  } catch (error) {
-    throw error
-  }
+  return data
 }

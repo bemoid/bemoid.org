@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const Docs = ({ attributes }) => {
+export const ApiSingleView = ({ context }) => {
   return (
     <div>
       <Head>
@@ -9,8 +9,8 @@ export const Docs = ({ attributes }) => {
       </Head>
 
       <main className="flex">
-        <div className="flex__column">{attributes.title}</div>
-        <div className="flex__column">{attributes.description}</div>
+        <div className="flex__column">{context.type}</div>
+        <div className="flex__column">{context.name}</div>
       </main>
     </div>
   )
