@@ -18,8 +18,7 @@ export async function getStaticPaths () {
   let paths = []
   const versions = await getVersions()
 
-  for (let i = 0; i < versions.length; i++) {
-    const version = versions[i]
+  for (const version of versions) {
     const styleguides = await getAllStyleguides(version)
 
     paths = paths.concat(styleguides.map((item) => ({

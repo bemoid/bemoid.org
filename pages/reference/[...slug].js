@@ -18,8 +18,7 @@ export async function getStaticPaths () {
   let paths = []
   const versions = await getVersions()
 
-  for (let i = 0; i < versions.length; i++) {
-    const version = versions[i]
+  for (const version of versions) {
     const references = await getAllReference(version)
 
     paths = paths.concat(references.map((item) => ({
