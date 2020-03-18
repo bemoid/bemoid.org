@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fse = require('fs-extra')
 const sass = require('node-sass')
 
 const { paths } = require('../../app.config')
@@ -12,7 +12,7 @@ module.exports = () => {
         file: `${paths.assets}/sass/bemoid/bemoid.${version}.scss`
       }, (err, result) => {
         if (err) throw err
-        fs.writeFile(`${paths.public}/css/bemoid.${version}.css`, result.css, function (err) {
+        fse.outputFile(`${paths.public}/css/bemoid.${version}.css`, result.css, function (err) {
           if (err) throw err
         })
       })
