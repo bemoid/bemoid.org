@@ -1,4 +1,4 @@
-const { getVersions } = require('./versions')
+const { getVersions, getLatestVersion } = require('./versions')
 const { getDocs, getAllDocs } = require('./docs')
 const { getStyleguide, getAllStyleguides } = require('./styleguide')
 const {
@@ -11,6 +11,7 @@ const {
 
 module.exports = {
   getVersions,
+  getLatestVersion,
   getDocs,
   getAllDocs,
   getStyleguide,

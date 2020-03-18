@@ -1,4 +1,4 @@
-import { DocsSingleView } from '@views/docs/single'
+import { DocsSingleView } from '@src/views/docs/single'
 
 import { getVersions, getDocs, getAllDocs } from '@api'
 
@@ -9,7 +9,11 @@ export async function getStaticProps ({ params }) {
 
   return {
     props: {
-      ...docs
+      context: {
+        version
+      },
+      title: docs.attributes.title,
+      description: docs.attributes.description,
     }
   }
 }
@@ -23,7 +27,8 @@ export async function getStaticPaths () {
 
     paths = paths.concat(docs.map((item) => ({
       params: {
-        slug: [version, item.attributes.slug]
+        slug: [version, item.attributes.slug],
+        version: version
       }
     })))
   }

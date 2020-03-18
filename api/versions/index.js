@@ -12,3 +12,14 @@ exports.getVersions = async () => {
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name)
 }
+
+/**
+ * Gets number of Bemoid's latest version.
+ *
+ * @returns string
+ */
+exports.getLatestVersion = async () => {
+  const versions = await exports.getVersions()
+
+  return Math.max(...versions)
+}

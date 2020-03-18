@@ -1,4 +1,4 @@
-import { StyleguideSingleView } from '@views/styleguide/single'
+import { StyleguideSingleView } from '@src/views/styleguide/single'
 
 import { getVersions, getStyleguide, getAllStyleguides } from '@api'
 
@@ -9,7 +9,11 @@ export async function getStaticProps ({ params }) {
 
   return {
     props: {
-      ...styleguide
+      context: {
+        version,
+      },
+      title: styleguide.header,
+      description: styleguide.description,
     }
   }
 }

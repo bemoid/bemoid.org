@@ -1,4 +1,4 @@
-import { ReferenceSingleView } from '@views/reference/single'
+import { ReferenceSingleView } from '@src/views/reference/single'
 
 import { getVersions, getReference, getAllReference } from '@api'
 
@@ -9,7 +9,11 @@ export async function getStaticProps ({ params }) {
 
   return {
     props: {
-      ...reference,
+      context: {
+        version,
+      },
+      type: reference.context.type,
+      title: reference.context.name,
     },
   }
 }

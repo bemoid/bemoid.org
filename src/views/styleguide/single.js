@@ -1,17 +1,12 @@
-import Head from 'next/head'
+import { Layout } from '@src/layouts/layout'
 
-export const StyleguideSingleView = ({ header, description }) => {
+export const StyleguideSingleView = ({ context, title, description }) => {
   return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout version={context.version}>
       <main className="flex">
-        <div className="flex__column">{header}</div>
+        <div className="flex__column">{title}</div>
         <div className="flex__column">{description}</div>
       </main>
-    </div>
+    </Layout>
   )
 }

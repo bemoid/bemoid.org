@@ -1,17 +1,12 @@
-import Head from 'next/head'
+import { Layout } from '@src/layouts/layout'
 
-export const ReferenceSingleView = ({ context }) => {
+export const ReferenceSingleView = ({ context, type, title }) => {
   return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout version={context.version}>
       <main className="flex">
-        <div className="flex__column">{context.type}</div>
-        <div className="flex__column">{context.name}</div>
+        <div className="flex__column">{type}</div>
+        <div className="flex__column">{title}</div>
       </main>
-    </div>
+    </Layout>
   )
 }
