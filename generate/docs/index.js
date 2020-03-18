@@ -2,7 +2,7 @@ const fm = require('front-matter')
 const slugify = require('slugify')
 
 const { paths } = require('../../app.config')
-const { files, process, generate } = require('../lib/generate')
+const { directories, files, process, generate } = require('../lib/generate')
 
 /**
  * Generates documentation data files from Bemoid's components `.md` files.
@@ -10,15 +10,19 @@ const { files, process, generate } = require('../lib/generate')
  * @returns {void}
  */
 module.exports = () => {
-  files(`${paths.bemoid}/**/!(LICENSE|README).md`, (files) => {
-    process(files, (content) => {
-      const data = fm(content)
+  directories(paths.bemoid, (dirs) => {
+    dirs.forEach((version) => {
+      files(`${paths.bemoid}/${version}/**/!(LICENSE|README).md`, (files) => {
+        process(files, (content) => {
+          const data = fm(content)
 
-      data.attributes = Object.assign(data.attributes, {
-        slug: slugify(data.attributes.title).toLowerCase()
+          data.attributes = Object.assign(data.attributes, {
+            slug: slugify(data.attributes.title).toLowerCase()
+          })
+
+          generate(`${version}/docs/${data.attributes.slug}.json`, data)
+        })
       })
-
-      generate(`docs/${data.attributes.slug}.json`, data)
     })
   })
 }

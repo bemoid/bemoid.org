@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const ApiSingleView = ({ context }) => {
+export const ReferenceSingleView = ({ context }) => {
   return (
     <div>
       <Head>

@@ -3,10 +3,11 @@ const { readFile, readFiles } = require('../lib/io')
 /**
  * Gets data collection of all styleguide pages.
  *
+ * @param {string} version
  * @returns object[]
  */
-exports.getAllStyleguides = async () => {
-  const data = await readFiles('styleguide/*')
+exports.getAllStyleguides = async (version) => {
+  const data = await readFiles(`${version}/styleguide/*`)
 
   return data
 }
@@ -14,11 +15,12 @@ exports.getAllStyleguides = async () => {
 /**
  * Gets data of a single styleguide.
  *
+ * @param {string} version
  * @param {string} slug
  * @returns object
  */
-exports.getStyleguide = async (slug) => {
-  const data = await readFile(`styleguide/${slug}`)
+exports.getStyleguide = async (version, slug) => {
+  const data = await readFile(`${version}/styleguide/${slug}`)
 
   return data
 }

@@ -2,9 +2,13 @@
 // Collects all generators and run
 // them to generate data files
 [
-  require('./api'),
   require('./docs'),
+  require('./reference'),
   require('./styleguide')
 ].forEach((generator) => {
-  generator()
+  try {
+    generator()
+  } catch (error) {
+    throw error
+  }
 })

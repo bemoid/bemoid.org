@@ -5,6 +5,26 @@ const fse = require('fs-extra')
 const { paths } = require('../../app.config')
 
 /**
+ * Finds child directories in provided path.
+ *
+ * @param {string} path
+ * @param {function} callback
+ *
+ * @returns {array}
+ */
+exports.directories = (path, callback) => {
+  return fs.readdir(path, { withFileTypes: true }, (err, files) => {
+    if (err) throw err
+
+    const directories = files
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => dirent.name)
+
+    callback(directories)
+  })
+}
+
+/**
  * Finds files paths based on provided glob pattern.
  *
  * @param {string} path
