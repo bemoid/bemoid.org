@@ -1,4 +1,4 @@
-import { Docs } from '@pages/docs/docs'
+import { Docs } from '@pages/docs'
 
 import { getDocs, getAllDocs } from '@api'
 

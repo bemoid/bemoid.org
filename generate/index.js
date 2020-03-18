@@ -2,7 +2,8 @@
 // Collects all generators and run
 // them to generate data files
 [
-  require('./docs')
+  require('./docs'),
+  require('./styleguide')
 ].forEach((generator) => {
   generator()
 })
