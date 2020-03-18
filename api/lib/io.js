@@ -11,17 +11,13 @@ const { paths } = require('../../app.config')
  * @returns object[]
  */
 exports.readFiles = async (path) => {
-  try {
-    const files = await fg(`${paths.data}/${path}.json`)
+  const files = await fg(`${paths.data}/${path}.json`)
 
-    return files.map((file) => {
-      const content = fse.readJsonSync(file)
+  return files.map((file) => {
+    const content = fse.readJsonSync(file)
 
-      return content
-    })
-  } catch (error) {
-    throw error
-  }
+    return content
+  })
 }
 
 /**
@@ -31,13 +27,9 @@ exports.readFiles = async (path) => {
  * @returns object
  */
 exports.readFile = async (path) => {
-  try {
-    const data = await fse.readJson(`${paths.data}/${path}.json`)
+  const data = await fse.readJson(`${paths.data}/${path}.json`)
 
-    return data
-  } catch (error) {
-    throw error
-  }
+  return data
 }
 
 /**
@@ -47,13 +39,9 @@ exports.readFile = async (path) => {
  * @returns object[]
  */
 exports.readDirectory = async (path) => {
-  try {
-    const dirpath = (path) ? `${paths.data}/${path}` : `${paths.data}`
+  const dirpath = (path) ? `${paths.data}/${path}` : `${paths.data}`
 
-    const files = await fs.readdirSync(dirpath, { withFileTypes: true })
+  const files = await fs.readdirSync(dirpath, { withFileTypes: true })
 
-    return files
-  } catch (error) {
-    throw error
-  }
+  return files
 }

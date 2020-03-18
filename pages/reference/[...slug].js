@@ -9,8 +9,8 @@ export async function getStaticProps ({ params }) {
 
   return {
     props: {
-      ...reference
-    }
+      ...reference,
+    },
   }
 }
 
@@ -24,7 +24,7 @@ export async function getStaticPaths () {
     paths = paths.concat(references.map((item) => ({
       params: {
         slug: [version, item.context.type, item.context.name],
-      }
+      },
     })))
   }
 

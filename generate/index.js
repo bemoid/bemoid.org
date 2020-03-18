@@ -6,9 +6,5 @@
   require('./reference'),
   require('./styleguide')
 ].forEach((generator) => {
-  try {
-    generator()
-  } catch (error) {
-    throw error
-  }
+  generator()
 })

@@ -33,7 +33,7 @@ exports.getReference = async (version, type, slug) => {
  * @returns object[]
  */
 exports.getAllVariablesReference = async (version) => {
-  const data = await getReference(version, 'variable', '*')
+  const data = await exports.getReference(version, 'variable', '*')
 
   return data
 }
@@ -45,7 +45,7 @@ exports.getAllVariablesReference = async (version) => {
  * @returns object[]
  */
 exports.getAllMixinsReference = async (version) => {
-  const data = await getReference(version, 'mixin', '*')
+  const data = await exports.getReference(version, 'mixin', '*')
 
   return data
 }
@@ -57,7 +57,7 @@ exports.getAllMixinsReference = async (version) => {
  * @returns object[]
  */
 exports.getAllFunctionsReference = async (version) => {
-  const data = await getReference(version, 'function', '*')
+  const data = await exports.getReference(version, 'function', '*')
 
   return data
 }
