@@ -1,7 +1,9 @@
-import { Layout } from '@src/layouts/layout'
+import { Head, Layout } from '@src/layouts'
 
 export const IndexView = ({ context }) => (
-  <Layout version={context.version}>
+  <Layout>
+    <Head version={context.version} />
+
     <main className="index">
       <div className="index__wrapper flex">
         <div className="flex__column">Hello</div>
