@@ -9,10 +9,10 @@ module.exports = () => {
     dirs.forEach((version) => {
       sass.render({
         outputStyle: 'compressed',
-        file: `${paths.assets}/sass/bemoid/bemoid.${version}.scss`
+        file: `${paths.sass}/${version}/bemoid.scss`
       }, (err, result) => {
         if (err) throw err
-        fse.outputFile(`${paths.public}/css/bemoid.${version}.css`, result.css, function (err) {
+        fse.outputFile(`${paths.public}/css/${version}/bemoid.css`, result.css, function (err) {
           if (err) throw err
         })
       })

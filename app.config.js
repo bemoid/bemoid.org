@@ -4,7 +4,7 @@ module.exports = {
   paths: {
     public: path.resolve('public'),
     data: path.resolve('resources/data'),
-    assets: path.resolve('resources/assets'),
+    sass: path.resolve('resources/sass'),
     bemoid: path.resolve('node_modules/@bemoid/bemoid')
   }
 }

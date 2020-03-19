@@ -50,7 +50,7 @@ export const Head = ({ title, description, version }) => {
       <meta property="twitter:image" content="https://static.bemoid.org/bemoid-social-image.jpg" />
 
       {/* Stylesheets */}
-      <link rel="stylesheet" type="text/css" href={`/css/bemoid.${version}.css`} />
+      <link rel="stylesheet" type="text/css" href={`/css/${version}/bemoid.css`} />
 
       {/* Additional */}
     </Helmet>

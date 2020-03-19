@@ -1,0 +1,90 @@
+/// Base font size set on the root html element.
+///
+/// @type {Value}
+$font-size: 1rem !default;
+
+/// Base font size set on the root html element.
+///
+/// @type {Value}
+$font-size-small: 0.707rem !default;
+
+/// Base line height determines the basic unit of vertical rhythm.
+///
+/// @type {Number}
+$font-line-height: 1.5 !default;
+
+/// Base font size set on the root html element.
+///
+/// @type {Color}
+$font-color: #8c8b99 !default;
+
+/// Antialiase fonts.
+///
+/// @type {Boolean}
+$font-antialiasing: true !default;
+
+/// Default font family.
+///
+/// @type {Value|Values}
+$font-family-primary: 'Lato', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Serif font family.
+///
+/// @type {Value|Values}
+$font-family-secondary: 'Teko', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Monospace font family.
+///
+/// @type {Value|Values}
+$font-family-monospace: 'Lucida Console', 'Monaco', monospace !default;
+
+/// Collection of heading sizes.
+///
+/// @link http://type-scale.com/
+///
+/// @type {Map}
+/// @prop {Map} default
+/// @prop {Map} medium
+$heading-sizes: (
+  default: (
+    'h1': 2.488rem,
+    'h2': 2.074rem,
+    'h3': 1.728rem,
+    'h4': 1.44rem,
+    'h5': 1.2rem,
+    'h6': 1rem,
+  ),
+  medium: (
+    'h1': 4.209rem,
+    'h2': 3.157rem,
+    'h3': 2.369rem,
+    'h4': 1.777rem,
+    'h5': 1.333rem,
+    'h6': 1rem,
+  ),
+) !default;
+
+/// Default heading size.
+///
+/// @type {Keyword}
+$heading-size: default !default;
+
+/// Font family of headings.
+///
+/// @type {Keyword|Values}
+$heading-font-family: $font-family-secondary !default;
+
+/// Text color of headings.
+///
+/// @type {Color}
+$heading-color: #484357 !default;
+
+/// Line height of headings.
+///
+/// @type {Number|Value}
+$heading-line-height: 1.2 !default;
+
+/// Font weight of headings.
+///
+/// @type {Number|Keyword}
+$heading-font-weight: 500 !default;
