@@ -1,7 +1,7 @@
 /// Base font size set on the root html element.
 ///
 /// @type {Value}
-$font-size: 1rem !default;
+$font-size: 18px !default;
 
 /// Base font size set on the root html element.
 ///
@@ -47,20 +47,20 @@ $font-family-monospace: 'Lucida Console', 'Monaco', monospace !default;
 /// @prop {Map} medium
 $heading-sizes: (
   default: (
-    'h1': 2.488rem,
-    'h2': 2.074rem,
-    'h3': 1.728rem,
-    'h4': 1.44rem,
-    'h5': 1.2rem,
-    'h6': 1rem,
+    'h1': 48px,
+    'h2': 32px,
+    'h3': 27px,
+    'h4': 21px,
+    'h5': 18px,
+    'h6': 18px,
   ),
   medium: (
-    'h1': 4.209rem,
-    'h2': 3.157rem,
-    'h3': 2.369rem,
-    'h4': 1.777rem,
-    'h5': 1.333rem,
-    'h6': 1rem,
+    'h1': 60px,
+    'h2': 48px,
+    'h3': 32px,
+    'h4': 27px,
+    'h5': 21px,
+    'h6': 18px,
   ),
 ) !default;
 
@@ -82,9 +82,32 @@ $heading-color: #484357 !default;
 /// Line height of headings.
 ///
 /// @type {Number|Value}
-$heading-line-height: 1.2 !default;
+$heading-line-height: 0.8 !default;
 
 /// Font weight of headings.
 ///
 /// @type {Number|Keyword}
 $heading-font-weight: 500 !default;
+
+/// Collection of breakpoints.
+///
+/// @type {Map}
+/// @prop {Value} xsmall
+/// @prop {Value} small
+/// @prop {Value} medium
+/// @prop {Value} large
+/// @prop {Value} xlarge
+/// @prop {Value} xxlarge
+$breakpoint-sizes: (
+  xsmall: 320px,
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  xlarge: 1200px,
+  xxlarge: 1440px
+) !default;
+
+/// Offset value between breakpoints ranges.
+///
+/// @type {Value}
+$breakpoint-offset: 1px;

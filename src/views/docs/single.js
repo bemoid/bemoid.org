@@ -1,18 +1,32 @@
-import { Head, Layout } from '@src/layouts'
+import { string, object } from 'prop-types'
 
-export const DocsSingleView = ({ context, title, description }) => {
+import { Head, Layout } from '@src/layouts'
+import { Header, Headline } from '@src/components'
+
+export const DocsSingleView = ({ title, description, context }) => {
   return (
     <Layout>
-      <Head title={`${title} Documentation`} description={description} version={context.version} />
+      <Head
+        title={`${title} Documentation`}
+        description={description}
+        version={context.version}
+      />
 
-      <main className="flex">
-        <div className="flex__column">
-          <h2>{title}</h2>
-        </div>
-        <div className="flex__column">
-          <p>{description}</p>
-        </div>
+      <Header>
+        <Headline heading='Documentation'>
+          A living styleguide and guidelines of all component the Bemoid CSS framework.
+        </Headline>
+      </Header>
+
+      <main>
+
       </main>
     </Layout>
   )
+}
+
+DocsSingleView.propTypes = {
+  title: string.isRequired,
+  description: string.isRequired,
+  context: object.isRequired,
 }

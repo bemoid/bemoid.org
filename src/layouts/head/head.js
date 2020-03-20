@@ -1,3 +1,5 @@
+import { string } from 'prop-types'
+
 import Helmet from 'next/head'
 
 export const Head = ({ title, description, version }) => {
@@ -55,4 +57,10 @@ export const Head = ({ title, description, version }) => {
       {/* Additional */}
     </Helmet>
   )
+}
+
+Head.propTypes = {
+  title: string.isRequired,
+  description: string.isRequired,
+  version: string.isRequired,
 }
