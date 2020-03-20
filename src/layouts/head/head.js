@@ -4,8 +4,8 @@ import Helmet from 'next/head'
 
 export const Head = ({ title, description, currentVersion }) => {
   title = (title)
-    ? `${title} | Bemoid - The component-oriented SASS framework`
-    : 'Bemoid - The component-oriented SASS framework'
+    ? `${title} | Bemoid - A component-oriented SASS framework`
+    : 'Bemoid - A component-oriented SASS framework'
 
   description = description || 'A component-oriented SASS framework based on BEM convention and OOCSS methodology'
 

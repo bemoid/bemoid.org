@@ -34,7 +34,7 @@ export const Hero = ({ heading, content }) => {
         </Styled.Main>
 
         <Styled.Aside>
-          <Styled.Image src='/images/bemoid-mascot.svg' />
+          <Styled.Image src='/images/bemoid-mascot.svg' alt='Bemoid - Robot Mascot' />
         </Styled.Aside>
       </Styled.Body>
 

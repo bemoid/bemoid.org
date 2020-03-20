@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { string, arrayOf } from 'prop-types'
+import { string } from 'prop-types'
 
 import { Navigation } from '@src/components/navigation/navigation'
 
@@ -12,8 +12,8 @@ export const Navbar = ({ currentVersion }) => {
     <Styled.Wrapper>
       <Styled.Body>
         <Styled.Aside>
-          <a href="/">
-            <Styled.Logo src='/images/bemoid-logo.svg' />
+          <a href="/" aria-label="Homepage">
+            <Styled.Logo src='/images/bemoid-logo.svg' alt="Bemoid - A component-oriented SASS framework" />
           </a>
         </Styled.Aside>
 
