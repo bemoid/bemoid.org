@@ -1,3 +1,4 @@
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 export const Wrapper = styled.div`
@@ -6,13 +7,15 @@ export const Wrapper = styled.div`
 `
 
 export const Body = styled.div`
-  padding: 27px 18px;
+  ${({ variant }) => variant.includes('withPadding') && css`
+    padding: 27px 18px;
 
-  @media (min-width: 768px) {
-    padding: 32px;
-  }
+    @media (min-width: 768px) {
+      padding: 32px;
+    }
 
-  @media (min-width: 992px) {
-    padding: 48px 32px;
-  }
+    @media (min-width: 992px) {
+      padding: 48px 32px;
+    }
+  `}
 `

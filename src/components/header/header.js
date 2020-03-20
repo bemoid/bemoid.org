@@ -1,21 +1,22 @@
-import { node } from 'prop-types'
-
-import { Navbar } from '@src/components'
+import { array, node } from 'prop-types'
 
 import * as Styled from './header.styled'
 
-export const Header = ({ children }) => {
+export const Header = ({ variant, children }) => {
   return (
     <Styled.Wrapper>
-      <Navbar />
-
-      {children && (
-        <Styled.Body>{children}</Styled.Body>
-      )}
+      <Styled.Body variant={variant}>
+        {children}
+      </Styled.Body>
     </Styled.Wrapper>
   )
 }
 
 Header.propTypes = {
+  variant: array,
   children: node.isRequired,
+}
+
+Header.defaultProps = {
+  variant: [],
 }

@@ -1,6 +1,6 @@
 import { string, node } from 'prop-types'
 
-import { Button } from '@src/components'
+import { ButtonHollow } from '@src/components'
 
 import * as Styled from './headline.styled'
 
@@ -16,9 +16,9 @@ export const Headline = ({ heading, children }) => {
       </Styled.Body>
 
       <Styled.Aside>
-        <Button href="https://github.com/bemoid/bemoid/">
+        <ButtonHollow href="https://github.com/bemoid/bemoid/">
           Visit Github
-        </Button>
+        </ButtonHollow>
       </Styled.Aside>
     </Styled.Wrapper>
   )

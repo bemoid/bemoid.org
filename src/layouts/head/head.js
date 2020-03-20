@@ -60,7 +60,12 @@ export const Head = ({ title, description, version }) => {
 }
 
 Head.propTypes = {
-  title: string.isRequired,
-  description: string.isRequired,
+  title: string,
+  description: string,
   version: string.isRequired,
+}
+
+Head.defaultProps = {
+  title: '',
+  description: '',
 }

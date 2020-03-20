@@ -10,14 +10,20 @@ export const Button = styled.a`
   text-decoration: none;
   outline: 0;
   text-align: center;
-  padding: 0.5em 1em;
+  font-size: 18px;
+  padding: 0.5em 0.8em;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
   ${({ size }) => size === 'medium' && css`
-    font-size: 1em;
+    @media (min-width: 768px) {
+      padding: 0.6em 1em;
+    }
   `}
 
   ${({ size }) => size === 'large' && css`
-    font-size: 1.25em;
+    @media (min-width: 768px) {
+      padding: 0.8em 1.2em;
+    }
   `}
 
   ${({ expand }) => expand && css`

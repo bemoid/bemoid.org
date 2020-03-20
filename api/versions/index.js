@@ -21,5 +21,5 @@ exports.getVersions = async () => {
 exports.getLatestVersion = async () => {
   const versions = await exports.getVersions()
 
-  return Math.max(...versions)
+  return Math.max(...versions).toString()
 }

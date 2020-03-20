@@ -1,36 +1,40 @@
-import * as Styled from './button.styled'
-
 import { string, bool, node } from 'prop-types'
 
-export const Button = ({
+import * as Styled from './button-fill.styled'
+
+export const ButtonFill = ({
   href,
   size,
   expand,
+  variant,
   className,
   children,
 }) => {
   return (
-    <Styled.Button
+    <Styled.ButtonFill
       href={href}
       size={size}
       expand={expand}
+      variant={variant}
       className={className}
     >
       {children}
-    </Styled.Button>
+    </Styled.ButtonFill>
   )
 }
 
-Button.propTypes = {
+ButtonFill.propTypes = {
   href: string.isRequired,
   size: string,
+  variant: string,
   expand: bool,
   className: string,
   children: node.isRequired,
 }
 
-Button.defaultProps = {
+ButtonFill.defaultProps = {
   size: 'medium',
-  className: '',
+  variant: 'primary',
   expand: false,
+  className: '',
 }

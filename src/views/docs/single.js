@@ -1,7 +1,7 @@
 import { string, object } from 'prop-types'
 
 import { Head, Layout } from '@src/layouts'
-import { Header, Headline } from '@src/components'
+import { Header, Headline, Navbar } from '@src/components'
 
 export const DocsSingleView = ({ title, description, context }) => {
   return (
@@ -12,7 +12,9 @@ export const DocsSingleView = ({ title, description, context }) => {
         version={context.version}
       />
 
-      <Header>
+      <Header variant={['withPadding']}>
+        <Navbar version={context.version} />
+
         <Headline heading='Documentation'>
           A living styleguide and guidelines of all component the Bemoid CSS framework.
         </Headline>

@@ -1,36 +1,40 @@
-import * as Styled from './button.styled'
-
 import { string, bool, node } from 'prop-types'
 
-export const Button = ({
+import * as Styled from './button-hollow.styled'
+
+export const ButtonHollow = ({
   href,
   size,
   expand,
+  variant,
   className,
   children,
 }) => {
   return (
-    <Styled.Button
+    <Styled.ButtonHollow
       href={href}
       size={size}
       expand={expand}
+      variant={variant}
       className={className}
     >
       {children}
-    </Styled.Button>
+    </Styled.ButtonHollow>
   )
 }
 
-Button.propTypes = {
+ButtonHollow.propTypes = {
   href: string.isRequired,
   size: string,
+  variant: string,
   expand: bool,
   className: string,
   children: node.isRequired,
 }
 
-Button.defaultProps = {
+ButtonHollow.defaultProps = {
   size: 'medium',
-  className: '',
+  variant: 'primary',
   expand: false,
+  className: '',
 }
