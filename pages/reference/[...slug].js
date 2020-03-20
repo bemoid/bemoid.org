@@ -5,12 +5,14 @@ import { getVersions, getReference, getAllReference } from '@api'
 export async function getStaticProps ({ params }) {
   const [version, type, slug] = params.slug
 
+  const versions = await getVersions()
   const reference = await getReference(version, type, slug)
 
   return {
     props: {
       context: {
-        version,
+        versions,
+        currentVersion: version,
       },
       type: reference.context.type,
       title: reference.context.name,

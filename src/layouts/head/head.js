@@ -2,7 +2,7 @@ import { string } from 'prop-types'
 
 import Helmet from 'next/head'
 
-export const Head = ({ title, description, version }) => {
+export const Head = ({ title, description, currentVersion }) => {
   title = (title)
     ? `${title} | Bemoid - The component-oriented SASS framework`
     : 'Bemoid - The component-oriented SASS framework'
@@ -52,7 +52,7 @@ export const Head = ({ title, description, version }) => {
       <meta property="twitter:image" content="https://static.bemoid.org/bemoid-social-image.jpg" />
 
       {/* Stylesheets */}
-      <link rel="stylesheet" type="text/css" href={`/css/${version}/bemoid.css`} />
+      <link rel="stylesheet" type="text/css" href={`/css/${currentVersion}/bemoid.css`} />
 
       {/* Additional */}
     </Helmet>
@@ -62,7 +62,7 @@ export const Head = ({ title, description, version }) => {
 Head.propTypes = {
   title: string,
   description: string,
-  version: string.isRequired,
+  currentVersion: string.isRequired,
 }
 
 Head.defaultProps = {

@@ -1,13 +1,15 @@
-import { getLatestVersion } from '@api'
+import { getVersions, getLatestVersion } from '@api'
 import { IndexView } from '@src/views/index'
 
 export async function getStaticProps () {
-  const version = await getLatestVersion()
+  const versions = await getVersions()
+  const currentVersion = await getLatestVersion()
 
   return {
     props: {
       context: {
-        version,
+        versions,
+        currentVersion,
       },
     }
   }

@@ -5,12 +5,14 @@ import { getVersions, getStyleguide, getAllStyleguides } from '@api'
 export async function getStaticProps ({ params }) {
   const [version, slug] = params.slug
 
+  const versions = await getVersions()
   const styleguide = await getStyleguide(version, slug)
 
   return {
     props: {
       context: {
-        version,
+        versions,
+        currentVersion: version,
       },
       title: styleguide.header,
       description: styleguide.description,

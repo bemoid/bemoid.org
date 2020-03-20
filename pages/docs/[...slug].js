@@ -5,12 +5,14 @@ import { getVersions, getDocs, getAllDocs } from '@api'
 export async function getStaticProps ({ params }) {
   const [version, slug] = params.slug
 
+  const versions = await getVersions()
   const docs = await getDocs(version, slug)
 
   return {
     props: {
       context: {
-        version
+        versions,
+        currentVersion: version,
       },
       title: docs.attributes.title,
       description: docs.attributes.description,

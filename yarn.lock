@@ -911,6 +911,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bemoid/bemoid/0.1@git://github.com/bemoid/bemoid.git#v0.1.0":
+  version "0.1.0"
+  resolved "git://github.com/bemoid/bemoid.git#dbd80e24cc67ca086a1b0489225a319372129ef0"
+
 "@bemoid/bemoid/0.2@git://github.com/bemoid/bemoid.git#v0.2.1":
   version "0.2.0"
   resolved "git://github.com/bemoid/bemoid.git#516e25db8da71bf9f08053a2951cd3a976a8cdca"

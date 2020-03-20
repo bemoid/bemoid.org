@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@bemoid/bemoid/0.2": "git://github.com/bemoid/bemoid.git#v0.2.1",
+    "@bemoid/bemoid/0.1": "git://github.com/bemoid/bemoid.git#v0.1.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "fast-glob": "^3.2.2",

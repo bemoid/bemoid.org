@@ -1,15 +1,13 @@
 import { object } from 'prop-types'
 
 import { Head, Layout } from '@src/layouts'
-import { Header, Hero, Navbar } from '@src/components'
+import { Header, Hero } from '@src/components'
 
 export const IndexView = ({ context }) => (
   <Layout>
-    <Head version={context.version} />
+    <Head currentVersion={context.currentVersion} />
 
-    <Header>
-      <Navbar version={context.version} />
-
+    <Header currentVersion={context.currentVersion}>
       <Hero
         heading="Bemoid"
         content="A component-oriented SASS framework based on BEM convention and OOCSS methodology"
