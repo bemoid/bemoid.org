@@ -23,18 +23,11 @@ export const Body = styled.div`
   display: flex;
   align-items: center;
   padding: 18px;
-  margin-left: -18px;
-  margin-right: -18px;
   border-bottom: 1px solid #5d5766;
   background: linear-gradient(90deg, #0e0a1a 0%, #3c3842 100%);
 
   @media (min-width: 768px) {
     padding: 18px 32px;
-  }
-
-  & > * {
-    padding-left: 18px;
-    padding-right: 18px;
   }
 `
 
