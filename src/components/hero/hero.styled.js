@@ -33,6 +33,7 @@ export const Body = styled.div`
   @media (min-width: 992px) {
     padding-top: 140px;
     padding-bottom: 120px;
+    max-width: 900px;
   }
 
   & > * {
@@ -78,6 +79,10 @@ export const Heading = styled.h1`
   @media (min-width: 768px) {
     font-size: 85px;
   }
+
+  @media (min-width: 992px) {
+    font-size: 95px;
+  }
 `
 
 export const Content = styled.p`
@@ -85,6 +90,10 @@ export const Content = styled.p`
 
   @media (min-width: 768px) {
     font-size: 24px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 27px;
   }
 `
 
@@ -117,7 +126,11 @@ export const Image = styled.img`
   display: block;
 
   @media (min-width: 768px) {
-    width: auto;
+    width: 220px;
+  }
+
+  @media (min-width: 992px) {
+    width: 250px;
   }
 `
 
@@ -137,7 +150,7 @@ export const Ground = styled.div`
   }
 
   @media (min-width: 992px) {
-    margin-top: -265px;
+    margin-top: -300px;
   }
 
   svg {

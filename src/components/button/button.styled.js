@@ -24,6 +24,10 @@ export const Button = styled.a`
     @media (min-width: 768px) {
       padding: 0.8em 1.2em;
     }
+
+    @media (min-width: 992px) {
+      padding: 1em 1.4em;
+    }
   `}
 
   ${({ expand }) => expand && css`
