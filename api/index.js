@@ -1,5 +1,5 @@
 const { getVersions, getLatestVersion } = require('./versions')
-const { getDocs, getAllDocs } = require('./docs')
+const { getDocs, getAllDocs, getAllDocsByGroup } = require('./docs')
 const { getStyleguide, getAllStyleguides } = require('./styleguide')
 const {
   getReference,
@@ -14,6 +14,7 @@ module.exports = {
   getLatestVersion,
   getDocs,
   getAllDocs,
+  getAllDocsByGroup,
   getStyleguide,
   getAllStyleguides,
   getReference,

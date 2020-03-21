@@ -1,18 +1,20 @@
 import { DocsSingleView } from '@src/views/docs/single'
 
-import { getVersions, getDocs, getAllDocs } from '@api'
+import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from '@api'
 
 export async function getStaticProps ({ params }) {
   const [version, slug] = params.slug
 
   const versions = await getVersions()
   const docs = await getDocs(version, slug)
+  const docsByGroup = await getAllDocsByGroup(version)
 
   return {
     props: {
       context: {
         versions,
         currentVersion: version,
+        docsByGroup,
       },
       title: docs.attributes.title,
       description: docs.attributes.description,

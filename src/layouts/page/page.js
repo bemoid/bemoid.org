@@ -13,6 +13,8 @@ export const PageLayout = ({
   context,
   children
 }) => {
+  const { versions, currentVersion, docsByGroup } = context
+
   return (
     <Layout
       title={title}
@@ -20,8 +22,8 @@ export const PageLayout = ({
       context={context}
     >
       <Header
-        versions={context.versions}
-        currentVersion={context.currentVersion}
+        versions={versions}
+        currentVersion={currentVersion}
         variant={['withPadding']}
       >
         <Callout heading={heading}>{excerpt}</Callout>
@@ -29,7 +31,17 @@ export const PageLayout = ({
 
       <Styled.Main>
         <Styled.Sidebar>
-          Menu
+          {docsByGroup.map((group) => (
+            <ul key={group.name}>
+              <li>{group.name}</li>
+
+              <ul>
+                {group.items.map((item, index) => (
+                  <li key={index}>{item.attributes.title}</li>
+                ))}
+              </ul>
+            </ul>
+          ))}
         </Styled.Sidebar>
 
         <Styled.Content>

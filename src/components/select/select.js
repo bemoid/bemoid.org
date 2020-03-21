@@ -7,7 +7,7 @@ export const Select = ({
   size,
   expand,
   className,
-  defaultValue,
+  value,
   onChange,
 }) => {
   return (
@@ -15,14 +15,13 @@ export const Select = ({
       size={size}
       expand={expand}
       className={className}
-      defaultValue={defaultValue}
+      value={value}
       onChange={onChange}
     >
       {items.map((item, index) => (
         <option
           key={index}
           value={item.value}
-          selected={item.selected}
         >
           {item.title}
         </option>
@@ -36,14 +35,14 @@ Select.propTypes = {
   size: string,
   expand: bool,
   className: string,
-  defaultValue: string,
+  value: string,
   onChange: func,
 }
 
 Select.defaultProps = {
   size: 'medium',
   className: '',
-  defaultValue: '',
+  value: '',
   expand: false,
   onChange: () => {},
 }

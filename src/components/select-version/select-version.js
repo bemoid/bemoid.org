@@ -1,6 +1,7 @@
 import { arrayOf, string, bool, func } from 'prop-types'
 
-import Router, { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 import * as Styled from './select-version.styled'
 
@@ -11,14 +12,17 @@ export const SelectVersion = ({
   expand,
   className,
 }) => {
-  const { pathname, query } = useRouter()
+  const router = useRouter()
+  const [version, setVersion] = useState(currentVersion)
 
-  const onChange = (event) => {
-    const slug = query.slug[1]
-    const version = event.target.value
+  useEffect(() => {
+    const slug = router.query.slug[1]
 
-    Router.push(pathname, pathname.replace('[...slug]', `${version}/${slug}`))
-  }
+    router.push(
+      router.pathname,
+      router.pathname.replace('[...slug]', `${version}/${slug}`)
+    )
+  }, [version])
 
   return (
     <Styled.SelectVersion
@@ -29,8 +33,8 @@ export const SelectVersion = ({
       size={size}
       expand={expand}
       className={className}
-      defaultValue={currentVersion}
-      onChange={onChange}
+      value={version}
+      onChange={(event) => setVersion(event.target.value)}
     />
   )
 }

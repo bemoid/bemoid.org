@@ -1,4 +1,5 @@
 const fm = require('front-matter')
+const md = require('markdown-it')()
 const slugify = require('slugify')
 
 const { paths } = require('../../app.config')
@@ -19,6 +20,8 @@ module.exports = () => {
           data.attributes = Object.assign(data.attributes, {
             slug: slugify(data.attributes.title).toLowerCase()
           })
+
+          data.body = md.render(data.body)
 
           generate(`${version}/docs/${data.attributes.slug}.json`, data)
         })

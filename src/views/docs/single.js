@@ -3,6 +3,8 @@ import { string, object } from 'prop-types'
 import { PageLayout } from '@src/layouts'
 import { Headline } from '@src/components'
 
+import * as Styled from './docs.styled'
+
 export const DocsSingleView = ({ title, description, body, context }) => {
   return (
     <PageLayout
@@ -14,7 +16,7 @@ export const DocsSingleView = ({ title, description, body, context }) => {
     >
       <Headline heading={title}>{description}</Headline>
 
-      {body}
+      <Styled.Content dangerouslySetInnerHTML={{ __html: body }} />
     </PageLayout>
   )
 }
