@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { string } from 'prop-types'
+import { string, arrayOf } from 'prop-types'
 
-import { Navigation } from '@src/components/navigation/navigation'
+import { Navigation, SelectVersion } from '@src/components'
 
 import * as Styled from './navbar.styled'
 
-export const Navbar = ({ currentVersion }) => {
+export const Navbar = ({ versions, currentVersion }) => {
   const [active, setActive] = useState(false)
 
   return (
@@ -15,6 +15,11 @@ export const Navbar = ({ currentVersion }) => {
           <a href="/" aria-label="Homepage">
             <Styled.Logo src='/images/bemoid-logo.svg' alt="Bemoid - A component-oriented SASS framework" />
           </a>
+
+          <SelectVersion
+            versions={versions}
+            currentVersion={currentVersion}
+          />
         </Styled.Aside>
 
         <Styled.Content>
@@ -41,5 +46,6 @@ export const Navbar = ({ currentVersion }) => {
 }
 
 Navbar.propTypes = {
+  versions: arrayOf(string).isRequired,
   currentVersion: string.isRequired,
 }

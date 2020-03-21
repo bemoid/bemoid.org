@@ -16,6 +16,7 @@ export async function getStaticProps ({ params }) {
       },
       title: docs.attributes.title,
       description: docs.attributes.description,
+      body: docs.body,
     }
   }
 }

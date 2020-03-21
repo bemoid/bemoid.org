@@ -1,13 +1,13 @@
-import { array, node, string } from 'prop-types'
+import { arrayOf, node, string } from 'prop-types'
 
 import { Navbar } from '@src/components'
 
 import * as Styled from './header.styled'
 
-export const Header = ({ currentVersion, variant, children }) => {
+export const Header = ({ versions, currentVersion, variant, children }) => {
   return (
     <Styled.Wrapper>
-      <Navbar currentVersion={currentVersion} />
+      <Navbar versions={versions} currentVersion={currentVersion} />
 
       <Styled.Body variant={variant}>
         {children}
@@ -17,8 +17,9 @@ export const Header = ({ currentVersion, variant, children }) => {
 }
 
 Header.propTypes = {
+  versions: arrayOf(string).isRequired,
   currentVersion: string.isRequired,
-  variant: array,
+  variant: arrayOf(string),
   children: node.isRequired,
 }
 

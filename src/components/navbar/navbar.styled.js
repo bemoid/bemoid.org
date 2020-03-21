@@ -33,6 +33,12 @@ export const Body = styled.div`
 
 export const Aside = styled.div`
   flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+
+  & > * + * {
+    margin-left: 27px;
+  }
 `
 
 export const Content = styled.div`

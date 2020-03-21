@@ -67,7 +67,7 @@ exports.process = (files, callback) => {
  * @returns {void}
  */
 exports.generate = (path, data) => {
-  fse.outputJson(`${paths.data}/${path}`, data, (err) => {
+  fse.outputJson(`${paths.data}/${path}`, data, { spaces: 2 }, (err) => {
     if (err) throw err
   })
 }
