@@ -1,9 +1,23 @@
+import Fuse from 'fuse.js'
+import { useState, useEffect } from 'react'
 import { object, string, node } from 'prop-types'
 
 import { Layout } from '@src/layouts'
-import { Header, Callout } from '@src/components'
+import { Header, Callout, Navigation } from '@src/components'
 
 import * as Styled from './page.styled'
+
+function useFuse ({ data, options }) {
+  const [term, setTerm] = useState('')
+
+  const fuse = new Fuse(data, {
+    threshold: 0.3,
+    ...options
+  })
+  const results = fuse.search(`${term}`)
+
+  return [results, setTerm]
+}
 
 export const PageLayout = ({
   title,
@@ -13,7 +27,24 @@ export const PageLayout = ({
   context,
   children
 }) => {
-  const { versions, currentVersion, docsByGroup } = context
+  const { versions, currentVersion, allDocs, allDocsByGroup } = context
+
+  const [searchQuery, setSearchQuery] = useState('')
+  const [results, search] = useFuse({
+    data: allDocs,
+    options: {
+      keys: [
+        { name: 'attributes.title', weight: 0.7 },
+        { name: 'attributes.description', weight: 0.5 },
+        { name: 'body', weight: 0.3 },
+        { name: 'attributes.group', weight: 0.1 }
+      ],
+    },
+  })
+
+  useEffect(() => {
+    search(searchQuery)
+  }, [searchQuery])
 
   return (
     <Layout
@@ -31,17 +62,16 @@ export const PageLayout = ({
 
       <Styled.Main>
         <Styled.Sidebar>
-          {docsByGroup.map((group) => (
-            <ul key={group.name}>
-              <li>{group.name}</li>
+          <input
+            placeholder="Search..."
+            onChange={(event) => setSearchQuery(event.target.value)}
+          />
 
-              <ul>
-                {group.items.map((item, index) => (
-                  <li key={index}>{item.attributes.title}</li>
-                ))}
-              </ul>
-            </ul>
-          ))}
+          {(searchQuery) ? (
+            <p>{searchQuery}</p>
+          ) : (
+            <Navigation items={allDocsByGroup} />
+          )}
         </Styled.Sidebar>
 
         <Styled.Content>

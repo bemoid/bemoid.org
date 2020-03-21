@@ -1,32 +1,29 @@
-import { arrayOf, shape, string } from 'prop-types'
+import { object, arrayOf } from 'prop-types'
 
 import * as Styled from './navigation.styled'
 
-export const Navigation = ({ items, className }) => {
+export const Navigation = ({ items }) => {
   return (
-    <Styled.List
-      className={className}
-    >
-      {items.map((item, index) => (
-        <Styled.Item key={index}>
-          <Styled.Link href={item.href}>
-            {item.title}
-          </Styled.Link>
-        </Styled.Item>
+    <Styled.Navigation>
+      {items.map((group) => (
+        <Styled.Group key={group.name}>
+          <li><b>{group.name}</b></li>
+
+          <Styled.Group>
+            {group.items.map((item, index) => (
+              <li key={index}>{item.attributes.title}</li>
+            ))}
+          </Styled.Group>
+        </Styled.Group>
       ))}
-    </Styled.List>
+    </Styled.Navigation>
   )
 }
 
 Navigation.propTypes = {
-  items: arrayOf(shape({
-    title: string.isRequired,
-    href: string.isRequired,
-  })),
-  className: string,
+  items: arrayOf(object).isRequired,
 }
 
 Navigation.defaultProps = {
-  items: [],
-  className: '',
+  search: [],
 }

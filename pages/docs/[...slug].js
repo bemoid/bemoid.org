@@ -7,14 +7,16 @@ export async function getStaticProps ({ params }) {
 
   const versions = await getVersions()
   const docs = await getDocs(version, slug)
-  const docsByGroup = await getAllDocsByGroup(version)
+  const allDocs = await getAllDocs(version, slug)
+  const allDocsByGroup = await getAllDocsByGroup(version)
 
   return {
     props: {
       context: {
         versions,
         currentVersion: version,
-        docsByGroup,
+        allDocs,
+        allDocsByGroup,
       },
       title: docs.attributes.title,
       description: docs.attributes.description,

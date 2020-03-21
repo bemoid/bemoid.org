@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { string, arrayOf } from 'prop-types'
 
-import { Navigation, SelectVersion } from '@src/components'
+import { MenuMobile, SelectVersion } from '@src/components'
 
 import * as Styled from './navbar.styled'
 
@@ -34,7 +34,7 @@ export const Navbar = ({ versions, currentVersion }) => {
       </Styled.Body>
 
       <Styled.Offcanvas active={active}>
-        <Navigation items={[
+        <MenuMobile items={[
           { title: 'Guide', href: `/guide/${currentVersion}/` },
           { title: 'Documentation', href: `/docs/${currentVersion}/` },
           { title: 'API Reference', href: `/reference/${currentVersion}/` },
