@@ -1,6 +1,5 @@
 import { arrayOf, string, bool, func } from 'prop-types'
 
-import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import * as Styled from './select-version.styled'
@@ -8,26 +7,23 @@ import * as Styled from './select-version.styled'
 export const SelectVersion = ({
   versions,
   currentVersion,
-  onChange,
-  size,
-  expand,
   className,
 }) => {
   const router = useRouter()
 
-  useEffect(() => {
+  const redirectHandler = (version) => {
     let path = ''
 
-    if (Array.isArray(router.query.path) && router.query.path.length > 1) {
-      let [, slug] = router.query.path
+    if (Array.isArray(router.query.path)) {
+      const slug = router.query.path.join('/')
 
-      path = router.pathname.replace('[...path]', `${currentVersion}/${slug}`)
+      path = router.pathname.replace('[...path]', `${version}/${slug}`)
     } else {
-      path = router.pathname.replace('[path]', `${currentVersion}`)
+      path = router.pathname.replace('[path]', `${version}`)
     }
 
-    router.push(router.pathname, path)
-  }, [currentVersion])
+    window.location.replace(path)
+  }
 
   return (
     <Styled.SelectVersion
@@ -35,11 +31,11 @@ export const SelectVersion = ({
         title: `v${version}`,
         value: `${version}`,
       }))}
-      size={size}
-      expand={expand}
       className={className}
       value={currentVersion}
-      onChange={(event) => onChange(event.target.value)}
+      onChange={(event) => {
+        redirectHandler(event.target.value)
+      }}
     />
   )
 }
@@ -47,15 +43,9 @@ export const SelectVersion = ({
 SelectVersion.propTypes = {
   versions: arrayOf(string).isRequired,
   currentVersion: string.isRequired,
-  size: string,
-  expand: bool,
   className: string,
-  onChange: func,
 }
 
 SelectVersion.defaultProps = {
-  size: 'medium',
   className: '',
-  expand: false,
-  onChange: () => {},
 }

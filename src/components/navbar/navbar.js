@@ -20,11 +20,7 @@ export const Navbar = () => {
           </a>
 
           {(versions.length > 0) && (
-            <SelectVersion
-              versions={versions}
-              currentVersion={currentVersion}
-              onChange={(version) => setCurrentVersion(version)}
-            />
+            <SelectVersion versions={versions} currentVersion={currentVersion} />
           )}
         </Styled.Aside>
 
