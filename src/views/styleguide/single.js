@@ -1,14 +1,25 @@
-import { Head, Layout } from '@src/layouts'
+import { string, object } from 'prop-types'
+
+import { PageLayout } from '@src/layouts'
 
 export const StyleguideSingleView = ({ context, title, description }) => {
   return (
-    <Layout>
-      <Head title={`${title} Styleguide`} description={description} version={context.version} />
-
-      <main className="flex">
-        <div className="flex__column">{title}</div>
-        <div className="flex__column">{description}</div>
+    <PageLayout
+      title={`${title} — Styleguide`}
+      description={description}
+      heading={`Styleguide`}
+      excerpt={`A living components documentation of the Bemoid SCSS framework.`}
+      context={context}
+    >
+      <main>
+        {title}
       </main>
-    </Layout>
+    </PageLayout>
   )
+}
+
+StyleguideSingleView.propTypes = {
+  title: string.isRequired,
+  description: string.isRequired,
+  context: object.isRequired,
 }

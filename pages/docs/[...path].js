@@ -1,6 +1,13 @@
-import { DocsSingleView } from '@src/views/docs/single'
+import { string, object, node } from 'prop-types'
 
+import { DocsSingleView } from '@src/views/docs/single'
 import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from '@api'
+import {
+  DocsContextProvider,
+  DocsByGroupContextProvider,
+  VersionsContextProvider,
+  CurrentVersionContextProvider,
+} from '@src/contexts'
 
 export async function getStaticProps ({ params }) {
   const [version, slug] = params.path
@@ -42,4 +49,34 @@ export async function getStaticPaths () {
   return { paths, fallback: false }
 }
 
-export default DocsSingleView
+const DocsSingle = ({
+  title,
+  description,
+  body,
+  context,
+  children,
+}) => {
+  return (
+    <VersionsContextProvider value={context.versions}>
+      <CurrentVersionContextProvider value={context.currentVersion}>
+        <DocsByGroupContextProvider value={context.allDocsByGroup}>
+          <DocsContextProvider value={context.allDocs}>
+            <DocsSingleView title={title} description={description} body={body}>
+              {children}
+            </DocsSingleView>
+          </DocsContextProvider>
+        </DocsByGroupContextProvider>
+      </CurrentVersionContextProvider>
+    </VersionsContextProvider>
+  )
+}
+
+DocsSingle.propTypes = {
+  title: string.isRequired,
+  description: string.isRequired,
+  body: string.isRequired,
+  context: object.isRequired,
+  children: node,
+}
+
+export default DocsSingle

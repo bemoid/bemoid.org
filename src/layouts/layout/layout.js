@@ -1,16 +1,20 @@
-import { object, string, node } from 'prop-types'
+import { string, node } from 'prop-types'
+import { useContext } from 'react'
 
 import { Head } from '@src/layouts'
+import { CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './layout.styled'
 
-export const Layout = ({ title, description, context, children }) => {
+export const Layout = ({ title, description, children }) => {
+  const { currentVersion } = useContext(CurrentVersionContext)
+
   return (
     <Styled.Layout>
       <Head
         title={title}
         description={description}
-        currentVersion={context.currentVersion}
+        currentVersion={currentVersion}
       />
 
       {children}
@@ -21,7 +25,6 @@ export const Layout = ({ title, description, context, children }) => {
 Layout.propTypes = {
   title: string,
   description: string,
-  context: object.isRequired,
   children: node.isRequired,
 }
 

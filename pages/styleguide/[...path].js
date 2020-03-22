@@ -1,18 +1,24 @@
-import { StyleguideSingleView } from '@src/views/styleguide/single'
+import { string, object, node } from 'prop-types'
 
-import { getVersions, getStyleguide, getAllStyleguides } from '@api'
+import { StyleguideSingleView } from '@src/views/styleguide/single'
+import { getVersions, getStyleguide, getAllStyleguides, getAllDocs, getAllDocsByGroup } from '@api'
+import { VersionsContextProvider, CurrentVersionContextProvider } from '@src/contexts'
 
 export async function getStaticProps ({ params }) {
   const [version, slug] = params.path
 
   const versions = await getVersions()
   const styleguide = await getStyleguide(version, slug)
+  const allDocs = await getAllDocs(version, slug)
+  const allDocsByGroup = await getAllDocsByGroup(version)
 
   return {
     props: {
       context: {
         versions,
         currentVersion: version,
+        allDocs,
+        allDocsByGroup,
       },
       title: styleguide.header,
       description: styleguide.description,
@@ -37,4 +43,23 @@ export async function getStaticPaths () {
   return { paths, fallback: false }
 }
 
-export default StyleguideSingleView
+const StyleguideSingle = ({ title, description, context, children }) => {
+  return (
+    <VersionsContextProvider value={context.versions}>
+      <CurrentVersionContextProvider value={context.currentVersion}>
+        <StyleguideSingleView title={title} description={description}>
+          {children}
+        </StyleguideSingleView>
+      </CurrentVersionContextProvider>
+    </VersionsContextProvider>
+  )
+}
+
+StyleguideSingle.propTypes = {
+  title: string.isRequired,
+  description: string.isRequired,
+  context: object.isRequired,
+  children: node,
+}
+
+export default StyleguideSingle

@@ -1,18 +1,24 @@
-import { ReferenceSingleView } from '@src/views/reference/single'
+import { string, object, node } from 'prop-types'
 
-import { getVersions, getReference, getAllReference } from '@api'
+import { ReferenceSingleView } from '@src/views/reference/single'
+import { getVersions, getReference, getAllReference, getAllDocs, getAllDocsByGroup } from '@api'
+import { VersionsContextProvider, CurrentVersionContextProvider } from '@src/contexts'
 
 export async function getStaticProps ({ params }) {
   const [version, type, slug] = params.path
 
   const versions = await getVersions()
   const reference = await getReference(version, type, slug)
+  const allDocs = await getAllDocs(version, slug)
+  const allDocsByGroup = await getAllDocsByGroup(version)
 
   return {
     props: {
       context: {
         versions,
         currentVersion: version,
+        allDocs,
+        allDocsByGroup,
       },
       type: reference.context.type,
       title: reference.context.name,
@@ -37,4 +43,23 @@ export async function getStaticPaths () {
   return { paths, fallback: false }
 }
 
-export default ReferenceSingleView
+const ReferenceSingle = ({ type, title, context, children }) => {
+  return (
+    <VersionsContextProvider value={context.versions}>
+      <CurrentVersionContextProvider value={context.currentVersion}>
+        <ReferenceSingleView type={type} title={title}>
+          {children}
+        </ReferenceSingleView>
+      </CurrentVersionContextProvider>
+    </VersionsContextProvider>
+  )
+}
+
+ReferenceSingle.propTypes = {
+  title: string.isRequired,
+  type: string.isRequired,
+  context: object.isRequired,
+  children: node,
+}
+
+export default ReferenceSingle

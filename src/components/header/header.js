@@ -4,10 +4,10 @@ import { Navbar } from '@src/components'
 
 import * as Styled from './header.styled'
 
-export const Header = ({ versions, currentVersion, variant, children }) => {
+export const Header = ({ variant, children }) => {
   return (
     <Styled.Wrapper>
-      <Navbar versions={versions} currentVersion={currentVersion} />
+      <Navbar />
 
       <Styled.Body variant={variant}>
         {children}
@@ -17,13 +17,10 @@ export const Header = ({ versions, currentVersion, variant, children }) => {
 }
 
 Header.propTypes = {
-  versions: arrayOf(string),
-  currentVersion: string.isRequired,
   variant: arrayOf(string),
   children: node.isRequired,
 }
 
 Header.defaultProps = {
-  versions: [],
   variant: [],
 }

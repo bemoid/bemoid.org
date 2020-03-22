@@ -20,6 +20,6 @@ export const Sidebar = styled.aside`
   }
 `
 
-export const Content = styled.article`
+export const Body = styled.article`
   flex: 1;
 `

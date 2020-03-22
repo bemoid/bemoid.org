@@ -1,11 +1,14 @@
-import { useState } from 'react'
-import { string, arrayOf } from 'prop-types'
+import { useState, useContext } from 'react'
 
 import { MenuMobile, SelectVersion } from '@src/components'
+import { VersionsContext, CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './navbar.styled'
 
-export const Navbar = ({ versions, currentVersion }) => {
+export const Navbar = () => {
+  const { versions } = useContext(VersionsContext)
+  const { currentVersion, setCurrentVersion } = useContext(CurrentVersionContext)
+
   const [active, setActive] = useState(false)
 
   return (
@@ -20,6 +23,7 @@ export const Navbar = ({ versions, currentVersion }) => {
             <SelectVersion
               versions={versions}
               currentVersion={currentVersion}
+              onChange={(version) => setCurrentVersion(version)}
             />
           )}
         </Styled.Aside>
@@ -45,9 +49,4 @@ export const Navbar = ({ versions, currentVersion }) => {
       </Styled.Offcanvas>
     </Styled.Wrapper>
   )
-}
-
-Navbar.propTypes = {
-  versions: arrayOf(string).isRequired,
-  currentVersion: string.isRequired,
 }

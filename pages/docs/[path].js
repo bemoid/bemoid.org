@@ -1,6 +1,13 @@
-import { DocsIndexView } from '@src/views/docs/index'
+import { object, node } from 'prop-types'
 
+import { DocsIndexView } from '@src/views/docs/index'
 import { getVersions, getAllDocs, getAllDocsByGroup } from '@api'
+import {
+  DocsContextProvider,
+  DocsByGroupContextProvider,
+  VersionsContextProvider,
+  CurrentVersionContextProvider,
+} from '@src/contexts'
 
 export async function getStaticProps ({ params }) {
   const version = params.path
@@ -33,4 +40,25 @@ export async function getStaticPaths () {
   return { paths, fallback: false }
 }
 
-export default DocsIndexView
+const DocsIndex = ({ context, children }) => {
+  return (
+    <VersionsContextProvider value={context.versions}>
+      <CurrentVersionContextProvider value={context.currentVersion}>
+        <DocsByGroupContextProvider value={context.allDocsByGroup}>
+          <DocsContextProvider value={context.allDocs}>
+            <DocsIndexView>
+              {children}
+            </DocsIndexView>
+          </DocsContextProvider>
+        </DocsByGroupContextProvider>
+      </CurrentVersionContextProvider>
+    </VersionsContextProvider>
+  )
+}
+
+DocsIndex.propTypes = {
+  context: object.isRequired,
+  children: node,
+}
+
+export default DocsIndex

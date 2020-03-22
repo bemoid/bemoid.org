@@ -1,14 +1,26 @@
-import { Head, Layout } from '@src/layouts'
+
+import { string, object } from 'prop-types'
+
+import { PageLayout } from '@src/layouts'
 
 export const ReferenceSingleView = ({ context, type, title }) => {
   return (
-    <Layout>
-      <Head title={`${title} API Reference`} version={context.version} />
-
-      <main className="flex">
-        <div className="flex__column">{type}</div>
-        <div className="flex__column">{title}</div>
+    <PageLayout
+      title={`${title} — API Reference`}
+      // description={description}
+      heading={`API Reference`}
+      excerpt={`A living components documentation of the Bemoid SCSS framework.`}
+      context={context}
+    >
+      <main>
+        {title}
       </main>
-    </Layout>
+    </PageLayout>
   )
+}
+
+ReferenceSingleView.propTypes = {
+  title: string.isRequired,
+  type: string.isRequired,
+  context: object.isRequired,
 }

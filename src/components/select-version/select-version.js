@@ -1,6 +1,6 @@
 import { arrayOf, string, bool, func } from 'prop-types'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import * as Styled from './select-version.styled'
@@ -8,12 +8,12 @@ import * as Styled from './select-version.styled'
 export const SelectVersion = ({
   versions,
   currentVersion,
+  onChange,
   size,
   expand,
   className,
 }) => {
   const router = useRouter()
-  const [version, setVersion] = useState(currentVersion)
 
   useEffect(() => {
     let path = ''
@@ -21,13 +21,13 @@ export const SelectVersion = ({
     if (Array.isArray(router.query.path) && router.query.path.length > 1) {
       let [, slug] = router.query.path
 
-      path = router.pathname.replace('[...path]', `${version}/${slug}`)
+      path = router.pathname.replace('[...path]', `${currentVersion}/${slug}`)
     } else {
-      path = router.pathname.replace('[path]', `${version}`)
+      path = router.pathname.replace('[path]', `${currentVersion}`)
     }
 
     router.push(router.pathname, path)
-  }, [version])
+  }, [currentVersion])
 
   return (
     <Styled.SelectVersion
@@ -38,8 +38,8 @@ export const SelectVersion = ({
       size={size}
       expand={expand}
       className={className}
-      value={version}
-      onChange={(event) => setVersion(event.target.value)}
+      value={currentVersion}
+      onChange={(event) => onChange(event.target.value)}
     />
   )
 }
