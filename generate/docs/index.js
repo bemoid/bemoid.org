@@ -15,7 +15,6 @@ module.exports = () => {
       slug: slugify(data.attributes.title).toLowerCase()
     })
 
-    data.rawBody = data.body
     data.body = md.render(data.body)
     data.attributes.description = md.render(data.attributes.description)
 

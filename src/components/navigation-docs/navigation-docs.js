@@ -10,7 +10,7 @@ export const NavigationDocs = () => {
   const { docsByGroup } = useContext(DocsByGroupContext)
   const { currentVersion } = useContext(CurrentVersionContext)
 
-  const { results, query, setQuery } = useSearch(currentVersion)
+  const { results, loading, query, setQuery } = useSearch(currentVersion)
 
   return (
     <Styled.NavigationDocs>
@@ -20,7 +20,11 @@ export const NavigationDocs = () => {
       />
 
       {(query) ? (
-        <SearchResults results={results} />
+        <SearchResults loading={loading} results={results.map((item) => {
+          item.href = `/docs/${currentVersion}/${item.attributes.slug}`
+
+          return item
+        })} />
       ) : (
         <Navigation items={docsByGroup.map((group) => ({
           name: group.name,

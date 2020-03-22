@@ -1,23 +1,49 @@
-import { object, arrayOf } from 'prop-types'
+import { object, bool, arrayOf } from 'prop-types'
 
 import * as Styled from './search-results.styled'
 
-export const SearchResults = ({ results }) => {
+export const SearchResults = ({ results, loading }) => {
+  const preview = (string) => {
+    const match = /<\s*em[^>]*>(.*?)<\s*\/\s*em>/.exec(string)
+
+    if (match) {
+      const start = match.index
+      const end = start + match[0].length
+
+      const offset = 100 - match[0].length
+      const offsetedStart = Math.max(0, start - offset)
+      const offsetedEnd = Math.min(string.length, end + offset)
+
+      return string.slice(offsetedStart, offsetedEnd)
+    }
+
+    return string.slice(0, 100)
+  }
+
   return (
     <Styled.SearchResults>
-      <ul>
-        {results.map((result, index) => (
-          <li key={index}>
-            <h4>{result.attributes.title}</h4>
+      {!loading && (
+        <Styled.List>
+          {results.map((result, index) => (
+            <Styled.Item key={index}>
+              <Styled.Link href={result.href}>
+                <Styled.Heading>{result.attributes.title}</Styled.Heading>
 
-            <div dangerouslySetInnerHTML={{ __html: result.attributes.description }} />
-          </li>
-        ))}
-      </ul>
+                <Styled.Content dangerouslySetInnerHTML={{ __html: preview(result._highlightResult.body.value) }} />
+              </Styled.Link>
+            </Styled.Item>
+          ))}
+        </Styled.List>
+      )}
     </Styled.SearchResults>
   )
 }
 
 SearchResults.propTypes = {
   results: arrayOf(object).isRequired,
+  loading: bool,
+}
+
+SearchResults.defaultProps = {
+  loading: false,
 }
