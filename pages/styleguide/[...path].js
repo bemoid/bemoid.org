@@ -3,7 +3,7 @@ import { StyleguideSingleView } from '@src/views/styleguide/single'
 import { getVersions, getStyleguide, getAllStyleguides } from '@api'
 
 export async function getStaticProps ({ params }) {
-  const [version, slug] = params.slug
+  const [version, slug] = params.path
 
   const versions = await getVersions()
   const styleguide = await getStyleguide(version, slug)
@@ -29,7 +29,7 @@ export async function getStaticPaths () {
 
     paths = paths.concat(styleguides.map((item) => ({
       params: {
-        slug: [version, item.slug]
+        path: [version, item.slug]
       }
     })))
   }

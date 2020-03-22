@@ -1,15 +1,21 @@
 import { DocsIndexView } from '@src/views/docs/index'
 
-import { getVersions } from '@api'
+import { getVersions, getAllDocs, getAllDocsByGroup } from '@api'
 
 export async function getStaticProps ({ params }) {
+  const version = params.path
+
   const versions = await getVersions()
+  const allDocs = await getAllDocs(version)
+  const allDocsByGroup = await getAllDocsByGroup(version)
 
   return {
     props: {
       context: {
         versions,
-        currentVersion: params.version,
+        currentVersion: version,
+        allDocs,
+        allDocsByGroup,
       },
     }
   }
@@ -20,7 +26,7 @@ export async function getStaticPaths () {
 
   const paths = versions.map((version) => ({
     params: {
-      version: version
+      path: version,
     }
   }))
 

@@ -26,9 +26,9 @@ export const Navbar = ({ versions, currentVersion }) => {
 
         <Styled.Content>
           <Styled.Nav items={[
-            { title: 'Guide', href: `/guide/${currentVersion}/` },
-            { title: 'Documentation', href: `/docs/${currentVersion}/` },
-            { title: 'API Reference', href: `/reference/${currentVersion}/` },
+            { title: 'Guide', href: `/guide/${currentVersion}` },
+            { title: 'Documentation', href: `/docs/${currentVersion}` },
+            { title: 'API Reference', href: `/reference/${currentVersion}` },
           ]} />
 
           <Styled.Button onClick={() => setActive(!active)} />
@@ -37,10 +37,10 @@ export const Navbar = ({ versions, currentVersion }) => {
 
       <Styled.Offcanvas active={active}>
         <MenuMobile items={[
-          { title: 'Guide', href: `/guide/${currentVersion}/` },
-          { title: 'Documentation', href: `/docs/${currentVersion}/` },
-          { title: 'API Reference', href: `/reference/${currentVersion}/` },
-          { title: 'Github', href: 'https://github.com/bemoid/bemoid/' },
+          { title: 'Guide', href: `/guide/${currentVersion}` },
+          { title: 'Documentation', href: `/docs/${currentVersion}` },
+          { title: 'API Reference', href: `/reference/${currentVersion}` },
+          { title: 'Github', href: 'https://github.com/bemoid/bemoid' },
         ]} />
       </Styled.Offcanvas>
     </Styled.Wrapper>

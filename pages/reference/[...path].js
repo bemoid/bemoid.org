@@ -3,7 +3,7 @@ import { ReferenceSingleView } from '@src/views/reference/single'
 import { getVersions, getReference, getAllReference } from '@api'
 
 export async function getStaticProps ({ params }) {
-  const [version, type, slug] = params.slug
+  const [version, type, slug] = params.path
 
   const versions = await getVersions()
   const reference = await getReference(version, type, slug)
@@ -29,7 +29,7 @@ export async function getStaticPaths () {
 
     paths = paths.concat(references.map((item) => ({
       params: {
-        slug: [version, item.context.type, item.context.name],
+        path: [version, item.context.type, item.context.name],
       },
     })))
   }

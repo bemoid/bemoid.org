@@ -3,7 +3,7 @@ import { DocsSingleView } from '@src/views/docs/single'
 import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from '@api'
 
 export async function getStaticProps ({ params }) {
-  const [version, slug] = params.slug
+  const [version, slug] = params.path
 
   const versions = await getVersions()
   const docs = await getDocs(version, slug)
@@ -34,8 +34,7 @@ export async function getStaticPaths () {
 
     paths = paths.concat(docs.map((item) => ({
       params: {
-        slug: [version, item.attributes.slug],
-        version: version
+        path: [version, item.attributes.slug],
       }
     })))
   }

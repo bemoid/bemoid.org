@@ -68,7 +68,7 @@ export const PageLayout = ({
           />
 
           {(searchQuery) ? (
-            <p>{searchQuery}</p>
+            <p>{results}</p>
           ) : (
             <Navigation items={allDocsByGroup} />
           )}

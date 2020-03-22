@@ -16,12 +16,17 @@ export const SelectVersion = ({
   const [version, setVersion] = useState(currentVersion)
 
   useEffect(() => {
-    const slug = router.query.slug[1]
+    let path = ''
 
-    router.push(
-      router.pathname,
-      router.pathname.replace('[...slug]', `${version}/${slug}`)
-    )
+    if (Array.isArray(router.query.path) && router.query.path.length > 1) {
+      let [, slug] = router.query.path
+
+      path = router.pathname.replace('[...path]', `${version}/${slug}`)
+    } else {
+      path = router.pathname.replace('[path]', `${version}`)
+    }
+
+    router.push(router.pathname, path)
   }, [version])
 
   return (
