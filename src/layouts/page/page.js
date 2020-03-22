@@ -1,7 +1,9 @@
+import { useContext } from 'react'
 import { string, node, element } from 'prop-types'
 
 import { Layout } from '@src/layouts'
-import { Header, Callout } from '@src/components'
+import { Header, Callout, SelectVersion } from '@src/components'
+import { VersionsContext, CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './page.styled'
 
@@ -11,9 +13,15 @@ export const PageLayout = ({
   aside,
   children,
 }) => {
+  const { versions } = useContext(VersionsContext)
+  const { currentVersion } = useContext(CurrentVersionContext)
+
   return (
     <Layout title={title} description={description}>
-      <Header variant={['withPadding']}>
+      <Header
+        navbarAside={<SelectVersion versions={versions} currentVersion={currentVersion} />}
+        variant={['withPadding']}
+      >
         <Callout heading="Documentation">
           A living components documentation of the Bemoid SCSS framework.
         </Callout>

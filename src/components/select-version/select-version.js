@@ -1,6 +1,5 @@
-import { arrayOf, string, bool, func } from 'prop-types'
-
 import { useRouter } from 'next/router'
+import { arrayOf, string } from 'prop-types'
 
 import * as Styled from './select-version.styled'
 
@@ -12,17 +11,19 @@ export const SelectVersion = ({
   const router = useRouter()
 
   const redirectHandler = (version) => {
-    let path = ''
+    let url = ''
 
     if (Array.isArray(router.query.path)) {
-      const slug = router.query.path.join('/')
+      const path = router.query.path
 
-      path = router.pathname.replace('[...path]', `${version}/${slug}`)
+      path[0] = version
+
+      url = router.pathname.replace('[...path]', path.join('/'))
     } else {
-      path = router.pathname.replace('[path]', `${version}`)
+      url = router.pathname.replace('[path]', `${version}`)
     }
 
-    window.location.replace(path)
+    window.location.replace(url)
   }
 
   return (

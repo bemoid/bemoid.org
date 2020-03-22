@@ -1,13 +1,13 @@
+import { element } from 'prop-types'
 import { useState, useContext } from 'react'
 
-import { MenuMobile, SelectVersion } from '@src/components'
-import { VersionsContext, CurrentVersionContext } from '@src/contexts'
+import { MenuMobile } from '@src/components'
+import { CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './navbar.styled'
 
-export const Navbar = () => {
-  const { versions } = useContext(VersionsContext)
-  const { currentVersion, setCurrentVersion } = useContext(CurrentVersionContext)
+export const Navbar = ({ aside }) => {
+  const { currentVersion } = useContext(CurrentVersionContext)
 
   const [active, setActive] = useState(false)
 
@@ -19,9 +19,7 @@ export const Navbar = () => {
             <Styled.Logo src='/images/bemoid-logo.svg' alt="Bemoid - A component-oriented SASS framework" />
           </a>
 
-          {(versions.length > 0) && (
-            <SelectVersion versions={versions} currentVersion={currentVersion} />
-          )}
+          {aside}
         </Styled.Aside>
 
         <Styled.Content>
@@ -45,4 +43,12 @@ export const Navbar = () => {
       </Styled.Offcanvas>
     </Styled.Wrapper>
   )
+}
+
+Navbar.propTypes = {
+  aside: element,
+}
+
+Navbar.defaultProps = {
+  aside: null,
 }

@@ -1,13 +1,13 @@
-import { arrayOf, node, string } from 'prop-types'
+import { arrayOf, node, string, element } from 'prop-types'
 
 import { Navbar } from '@src/components'
 
 import * as Styled from './header.styled'
 
-export const Header = ({ variant, children }) => {
+export const Header = ({ navbarAside, variant, children }) => {
   return (
     <Styled.Wrapper>
-      <Navbar />
+      <Navbar aside={navbarAside} />
 
       <Styled.Body variant={variant}>
         {children}
@@ -17,10 +17,12 @@ export const Header = ({ variant, children }) => {
 }
 
 Header.propTypes = {
+  navbarAside: element,
   variant: arrayOf(string),
   children: node.isRequired,
 }
 
 Header.defaultProps = {
+  navbarAside: null,
   variant: [],
 }
