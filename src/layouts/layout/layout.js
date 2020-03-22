@@ -19,8 +19,13 @@ export const Layout = ({ title, description, context, children }) => {
 }
 
 Layout.propTypes = {
-  title: string.isRequired,
-  description: string.isRequired,
+  title: string,
+  description: string,
   context: object.isRequired,
   children: node.isRequired,
+}
+
+Layout.defaultProps = {
+  title: '',
+  description: '',
 }
