@@ -1,1 +1,1 @@
-export { useFuse } from './fuse/fuse'
+export { useSearch } from './search/search'

@@ -1,13 +1,17 @@
 import { string } from 'prop-types'
 
-import { Headline } from '@src/components'
 import { PageLayout } from '@src/layouts'
+import { Headline, NavigationDocs } from '@src/components'
 
 import * as Styled from './docs.styled'
 
 export const DocsSingleView = ({ title, description, body }) => {
   return (
-    <PageLayout title={`${title} — Documentation`} description={description}>
+    <PageLayout
+      title={`${title} — Documentation`}
+      description={description}
+      aside={<NavigationDocs />}
+    >
       <Headline heading={title}>
         {description}
       </Headline>

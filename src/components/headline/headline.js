@@ -7,7 +7,7 @@ export const Headline = ({ heading, children }) => {
     <Styled.Headline>
       <h2>{heading}</h2>
 
-      <p>{children}</p>
+      <div dangerouslySetInnerHTML={{ __html: children }} />
     </Styled.Headline>
   )
 }

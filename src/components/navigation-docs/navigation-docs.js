@@ -1,42 +1,35 @@
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 
-import { useFuse } from '@src/hooks'
-import { Navigation } from '@src/components'
-import { DocsContext, DocsByGroupContext } from '@src/contexts'
+import { useSearch } from '@src/hooks'
+import { Navigation, InputSearch, SearchResults } from '@src/components'
+import { CurrentVersionContext, DocsByGroupContext } from '@src/contexts'
+
+import * as Styled from './navigation-docs.styled'
 
 export const NavigationDocs = () => {
-  const { docs } = useContext(DocsContext)
   const { docsByGroup } = useContext(DocsByGroupContext)
+  const { currentVersion } = useContext(CurrentVersionContext)
 
-  const [searchQuery, setSearchQuery] = useState('')
-  const [results, search] = useFuse({
-    data: docs,
-    options: {
-      keys: [
-        { name: 'attributes.title', weight: 0.7 },
-        { name: 'attributes.description', weight: 0.5 },
-        { name: 'body', weight: 0.3 },
-        { name: 'attributes.group', weight: 0.1 }
-      ],
-    },
-  })
-
-  useEffect(() => {
-    search(searchQuery)
-  }, [searchQuery])
+  const { results, query, setQuery } = useSearch(currentVersion)
 
   return (
-    <>
-      <input
-        placeholder="Search..."
-        onChange={(event) => setSearchQuery(event.target.value)}
+    <Styled.NavigationDocs>
+      <InputSearch
+        placeholder="Search documentation ..."
+        onChange={(event) => setQuery(event.target.value)}
       />
 
-      {(searchQuery) ? (
-        <p>{searchQuery}</p>
+      {(query) ? (
+        <SearchResults results={results} />
       ) : (
-        <Navigation items={docsByGroup} />
+        <Navigation items={docsByGroup.map((group) => ({
+          name: group.name,
+          items: group.items.map((item) => ({
+            title: item.attributes.title,
+            href: `/docs/${currentVersion}/${item.attributes.slug}`,
+          })),
+        }))} />
       )}
-    </>
+    </Styled.NavigationDocs>
   )
 }

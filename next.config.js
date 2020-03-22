@@ -1,6 +1,13 @@
 const path = require('path')
 
+require('dotenv').config()
+
 module.exports = {
+  env: {
+    ALGOLIA_INDEX_PREFIX: process.env.ALGOLIA_INDEX_PREFIX,
+    ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
+    ALGOLIA_SEARCH_KEY: process.env.ALGOLIA_SEARCH_KEY,
+  },
   webpack: (config) => {
     config.resolve.alias['@api'] = path.resolve(`${__dirname}/api`)
     config.resolve.alias['@src'] = path.resolve(`${__dirname}/src`)
