@@ -17,12 +17,13 @@ export const Header = ({ versions, currentVersion, variant, children }) => {
 }
 
 Header.propTypes = {
-  versions: arrayOf(string).isRequired,
+  versions: arrayOf(string),
   currentVersion: string.isRequired,
   variant: arrayOf(string),
   children: node.isRequired,
 }
 
 Header.defaultProps = {
+  versions: [],
   variant: [],
 }

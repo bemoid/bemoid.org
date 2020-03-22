@@ -4,17 +4,14 @@ import { Layout } from '@src/layouts'
 import { Header, Hero } from '@src/components'
 
 export const IndexView = ({ context }) => {
-  const { versions, currentVersion } = context
+  const { currentVersion } = context
 
   return (
     <Layout
       currentVersion={currentVersion}
       context={context}
     >
-      <Header
-        versions={versions}
-        currentVersion={currentVersion}
-      >
+      <Header currentVersion={currentVersion}>
         <Hero
           heading="Bemoid"
           content="A component-oriented SASS framework based on BEM convention and OOCSS methodology"

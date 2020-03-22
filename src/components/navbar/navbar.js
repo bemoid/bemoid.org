@@ -16,10 +16,12 @@ export const Navbar = ({ versions, currentVersion }) => {
             <Styled.Logo src='/images/bemoid-logo.svg' alt="Bemoid - A component-oriented SASS framework" />
           </a>
 
-          <SelectVersion
-            versions={versions}
-            currentVersion={currentVersion}
-          />
+          {(versions.length > 0) && (
+            <SelectVersion
+              versions={versions}
+              currentVersion={currentVersion}
+            />
+          )}
         </Styled.Aside>
 
         <Styled.Content>
