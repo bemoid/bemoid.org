@@ -57,6 +57,10 @@ export const Content = styled.p`
   }
 `
 
+export const Message = styled.div`
+  padding: 27px 32px;
+`
+
 export const Footer = styled.div`
   padding: 12px;
   display: flex;
