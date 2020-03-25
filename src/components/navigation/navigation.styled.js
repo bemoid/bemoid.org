@@ -24,9 +24,10 @@ export const Group = styled.ul`
 `
 
 export const Heading = styled.li`
-  color: #484357;
-  font-size: 18px;
+  color: #a4a2b3;
+  font-size: 14px;
   font-weight: 700;
+  text-transform: uppercase;
 `
 
 export const Item = styled.li`
@@ -35,7 +36,7 @@ export const Item = styled.li`
 
 export const Link = styled.a`
   position: relative;
-  color: #757480;
+  color: #484357;
   display: block;
   text-decoration: none;
   cursor: pointer;

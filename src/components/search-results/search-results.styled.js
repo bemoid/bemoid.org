@@ -21,7 +21,7 @@ export const Item = styled.li`
 
 export const Link = styled.a`
   display: block;
-  padding: 32px;
+  padding: 27px 32px;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 
@@ -31,10 +31,19 @@ export const Link = styled.a`
 `
 
 export const Heading = styled.h4`
+  display: flex;
+  justify-content: space-between;
   color: #484357;
   font-size: 18px;
   font-weight: 700;
   font-family: inherit;
+`
+
+export const Badge = styled.span`
+  color: #a4a2b3;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
 `
 
 export const Content = styled.p`
@@ -42,8 +51,19 @@ export const Content = styled.p`
   overflow-wrap: break-word;
 
   em {
-    background-color: #ffe4bf;
+    background-color: #fff1de;
     padding: 1px 3px;
     border-radius: 2px;
   }
+`
+
+export const Footer = styled.div`
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const Logo = styled.img`
+  display: block;
+  height: 18px;
 `

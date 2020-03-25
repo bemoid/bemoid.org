@@ -23,17 +23,25 @@ export const SearchResults = ({ results, loading }) => {
   return (
     <Styled.SearchResults>
       {!loading && (
-        <Styled.List>
-          {results.map((result, index) => (
-            <Styled.Item key={index}>
-              <Styled.Link href={result.href}>
-                <Styled.Heading>{result.attributes.title}</Styled.Heading>
+        <>
+          <Styled.List>
+            {results.map((result, index) => (
+              <Styled.Item key={index}>
+                <Styled.Link href={result.href}>
+                  <Styled.Heading>
+                    {result.attributes.title} <Styled.Badge>{result.attributes.group}</Styled.Badge>
+                  </Styled.Heading>
 
-                <Styled.Content dangerouslySetInnerHTML={{ __html: preview(result._highlightResult.body.value) }} />
-              </Styled.Link>
-            </Styled.Item>
-          ))}
-        </Styled.List>
+                  <Styled.Content dangerouslySetInnerHTML={{ __html: preview(result._highlightResult.body.value) }} />
+                </Styled.Link>
+              </Styled.Item>
+            ))}
+          </Styled.List>
+
+          <Styled.Footer>
+            <Styled.Logo src="/images/algolia-search-by-logo.svg" />
+          </Styled.Footer>
+        </>
       )}
     </Styled.SearchResults>
   )
