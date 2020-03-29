@@ -9,8 +9,8 @@
     "generate": "node generate/index.js"
   },
   "dependencies": {
-    "@bemoid/bemoid/0.1": "git://github.com/bemoid/bemoid.git#v0.1.0",
-    "@bemoid/bemoid/0.2": "git://github.com/bemoid/bemoid.git#v0.2.1",
+    "@bemoid/bemoid/0.3": "git://github.com/bemoid/bemoid.git#v0.3.0",
+    "@bemoid/bemoid/0.2": "git://github.com/bemoid/bemoid.git#v0.2.4",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "algoliasearch": "^4.1.0",
@@ -23,6 +23,7 @@
     "markdown-it": "^10.0.0",
     "next": "9.3.0",
     "node-sass": "^4.13.1",
+    "prism-react-renderer": "^1.0.2",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "sass": "^1.26.3",

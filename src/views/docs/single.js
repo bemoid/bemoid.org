@@ -1,22 +1,18 @@
-import { string } from 'prop-types'
+import { string, object } from 'prop-types'
 
 import { PageLayout } from '@src/layouts'
-import { Headline, NavigationDocs } from '@src/components'
+import { Headline, Content, NavigationDocs } from '@src/components'
 
-import * as Styled from './docs.styled'
-
-export const DocsSingleView = ({ title, description, body }) => {
+export const DocsSingleView = ({ title, description, shortcodes, body }) => {
   return (
     <PageLayout
       title={`${title} — Documentation`}
       description={description}
       aside={<NavigationDocs />}
+      sidebar={<NavigationDocs />}
+      headline={<Headline heading={title}>{description}</Headline>}
     >
-      <Headline heading={title}>
-        {description}
-      </Headline>
-
-      <Styled.Content dangerouslySetInnerHTML={{ __html: body }} />
+      <Content content={body} shortcodes={shortcodes} />
     </PageLayout>
   )
 }
@@ -24,5 +20,6 @@ export const DocsSingleView = ({ title, description, body }) => {
 DocsSingleView.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
+  shortcodes: object,
   body: string.isRequired,
 }

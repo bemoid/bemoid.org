@@ -27,6 +27,7 @@ export async function getStaticProps ({ params }) {
       },
       title: docs.attributes.title,
       description: docs.attributes.description,
+      shortcodes: docs.attributes.shortcodes,
       body: docs.body,
     }
   }
@@ -52,6 +53,7 @@ export async function getStaticPaths () {
 const DocsSingle = ({
   title,
   description,
+  shortcodes,
   body,
   context,
   children,
@@ -61,7 +63,12 @@ const DocsSingle = ({
       <CurrentVersionContextProvider value={context.currentVersion}>
         <DocsByGroupContextProvider value={context.allDocsByGroup}>
           <DocsContextProvider value={context.allDocs}>
-            <DocsSingleView title={title} description={description} body={body}>
+            <DocsSingleView
+              title={title}
+              description={description}
+              shortcodes={shortcodes}
+              body={body}
+            >
               {children}
             </DocsSingleView>
           </DocsContextProvider>
@@ -74,6 +81,7 @@ const DocsSingle = ({
 DocsSingle.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
+  shortcodes: object,
   body: string.isRequired,
   context: object.isRequired,
   children: node,

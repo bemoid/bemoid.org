@@ -11,6 +11,8 @@ export const PageLayout = ({
   title,
   description,
   aside,
+  sidebar,
+  headline,
   children,
 }) => {
   const { versions } = useContext(VersionsContext)
@@ -28,9 +30,17 @@ export const PageLayout = ({
       </Header>
 
       <Styled.Main>
-        <Styled.Sidebar>{aside}</Styled.Sidebar>
+        <Styled.Sidebar>{sidebar}</Styled.Sidebar>
 
-        <Styled.Body>{children}</Styled.Body>
+        <Styled.Wrapper>
+          {headline}
+
+          <Styled.Body>
+            <Styled.Content>{children}</Styled.Content>
+
+            <Styled.Aside>{aside}</Styled.Aside>
+          </Styled.Body>
+        </Styled.Wrapper>
       </Styled.Main>
     </Layout>
   )
@@ -40,5 +50,7 @@ PageLayout.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
   aside: element.isRequired,
+  sidebar: element.isRequired,
+  headline: element.isRequired,
   children: node.isRequired,
 }

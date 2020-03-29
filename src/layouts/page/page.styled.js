@@ -20,6 +20,20 @@ export const Sidebar = styled.aside`
   }
 `
 
-export const Body = styled.article`
+export const Wrapper = styled.article`
   flex: 1;
+`
+
+export const Body = styled.article`
+  display: flex;
+`
+
+export const Content = styled.article`
+  flex: 1;
+  max-width: 900px;
+`
+
+export const Aside = styled.article`
+  flex: 1;
+  max-width: 200px;
 `

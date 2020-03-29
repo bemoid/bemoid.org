@@ -45,13 +45,11 @@ export const Link = styled.a`
   &:before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: -19px;
-    width: 6px;
-    height: 6px;
-    margin-top: -3px;
+    top: 0;
+    left: -32px;
+    width: 3px;
+    height: 100%;
     background-color: #d2d2d9;
-    border-radius: 50%;
     opacity: 0;
     transition: all 0.3s ease-in-out;
   }
