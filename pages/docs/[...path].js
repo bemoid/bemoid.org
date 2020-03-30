@@ -1,4 +1,4 @@
-import { string, object, node } from 'prop-types'
+import { array, string, object, node } from 'prop-types'
 
 import { DocsSingleView } from '@src/views/docs/single'
 import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from '@api'
@@ -28,6 +28,7 @@ export async function getStaticProps ({ params }) {
       title: docs.attributes.title,
       description: docs.attributes.description,
       shortcodes: docs.attributes.shortcodes,
+      headings: docs.attributes.headings,
       body: docs.body,
     }
   }
@@ -54,6 +55,7 @@ const DocsSingle = ({
   title,
   description,
   shortcodes,
+  headings,
   body,
   context,
   children,
@@ -67,6 +69,7 @@ const DocsSingle = ({
               title={title}
               description={description}
               shortcodes={shortcodes}
+              headings={headings}
               body={body}
             >
               {children}
@@ -82,6 +85,7 @@ DocsSingle.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
   shortcodes: object,
+  headings: array,
   body: string.isRequired,
   context: object.isRequired,
   children: node,

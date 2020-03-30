@@ -33,7 +33,13 @@ export const Content = styled.article`
   max-width: 900px;
 `
 
-export const Aside = styled.article`
+export const Aside = styled.aside`
   flex: 1;
   max-width: 200px;
+`
+
+export const AsideTrack = styled.div`
+  position: sticky;
+  top: 36px;
+  left: 0;
 `

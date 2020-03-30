@@ -38,7 +38,11 @@ export const PageLayout = ({
           <Styled.Body>
             <Styled.Content>{children}</Styled.Content>
 
-            <Styled.Aside>{aside}</Styled.Aside>
+            <Styled.Aside>
+              <Styled.AsideTrack>
+                {aside}
+              </Styled.AsideTrack>
+            </Styled.Aside>
           </Styled.Body>
         </Styled.Wrapper>
       </Styled.Main>
