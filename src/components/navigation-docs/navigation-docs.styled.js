@@ -1,7 +1,13 @@
 import styled from '@emotion/styled'
 
 export const NavigationDocs = styled.div`
+
+`
+
+export const Body = styled.div`
+  padding: 27px 32px;
+
   & > * + * {
-    border-top: 1px solid #d2d2d9;
+    margin-top: 27px;
   }
 `

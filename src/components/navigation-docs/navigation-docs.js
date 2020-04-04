@@ -1,7 +1,8 @@
 import { useContext } from 'react'
 
 import { useSearch } from '@src/hooks'
-import { Navigation, InputSearch, SearchResults } from '@src/components'
+import { IconReference, IconGuide, IconDocumentation } from '@src/icons'
+import { Navigation, NavigationIcons, InputSearch, SearchResults } from '@src/components'
 import { CurrentVersionContext, DocsByGroupContext } from '@src/contexts'
 
 import * as Styled from './navigation-docs.styled'
@@ -26,13 +27,33 @@ export const NavigationDocs = () => {
           return item
         })} />
       ) : (
-        <Navigation items={docsByGroup.map((group) => ({
-          name: group.name,
-          items: group.items.map((item) => ({
-            title: item.attributes.title,
-            href: `/docs/${currentVersion}/${item.attributes.slug}`,
-          })),
-        }))} />
+        <Styled.Body>
+          <NavigationIcons items={[
+            {
+              title: 'Documentation',
+              href: `/docs/${currentVersion}`,
+              icon: <IconDocumentation />,
+            },
+            {
+              title: 'Guide',
+              href: `/guide/${currentVersion}`,
+              icon: <IconGuide />,
+            },
+            {
+              title: 'API Reference',
+              href: `/reference/${currentVersion}`,
+              icon: <IconReference />,
+            }
+          ]} />
+
+          <Navigation items={docsByGroup.map((group) => ({
+            name: group.name,
+            items: group.items.map((item) => ({
+              title: item.attributes.title,
+              href: `/docs/${currentVersion}/${item.attributes.slug}`,
+            })),
+          }))} />
+        </Styled.Body>
       )}
     </Styled.NavigationDocs>
   )

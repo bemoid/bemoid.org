@@ -2,14 +2,10 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 export const Navigation = styled.div`
-  padding: 12px 18px;
+  font-size: 16px;
 
   & > * + * {
     margin-top: 21px;
-  }
-
-  @media (min-width: 768px) {
-    padding: 24px 32px;
   }
 `
 

@@ -11,12 +11,12 @@ export const Sidebar = styled.aside`
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 300px;
+  max-width: 260px;
   border-right: 1px solid #d2d2d9;
 
   @media (min-width: 768px) {
     position: static;
-    flex: 0 0 300px;
+    flex: 0 0 260px;
   }
 `
 
