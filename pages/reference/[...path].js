@@ -1,8 +1,8 @@
 import { string, object, node } from 'prop-types'
 
 import { ReferenceSingleView } from '@src/views/reference/single'
-import { getVersions, getReference, getAllReference, getAllDocs, getAllDocsByGroup } from '@api'
 import { VersionsContextProvider, CurrentVersionContextProvider } from '@src/contexts'
+import { getVersions, getReference, getAllReference, getAllDocs, getAllDocsByGroup } from '@query'
 
 export async function getStaticProps ({ params }) {
   const [version, type, slug] = params.path

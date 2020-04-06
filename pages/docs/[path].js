@@ -1,7 +1,7 @@
 import { object, node } from 'prop-types'
 
 import { DocsIndexView } from '@src/views/docs/index'
-import { getVersions, getAllDocs, getAllDocsByGroup } from '@api'
+import { getVersions, getAllDocs, getAllDocsByGroup } from '@query'
 import {
   DocsContextProvider,
   DocsByGroupContextProvider,

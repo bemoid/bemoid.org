@@ -9,8 +9,8 @@ module.exports = {
     ALGOLIA_SEARCH_KEY: process.env.ALGOLIA_SEARCH_KEY,
   },
   webpack: (config) => {
-    config.resolve.alias['@api'] = path.resolve(`${__dirname}/api`)
     config.resolve.alias['@src'] = path.resolve(`${__dirname}/src`)
+    config.resolve.alias['@query'] = path.resolve(`${__dirname}/query`)
     config.resolve.alias['@resources'] = path.resolve(`${__dirname}/resources`)
 
     return config

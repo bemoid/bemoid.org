@@ -1,7 +1,7 @@
 import { object, node } from 'prop-types'
 
 import { IndexView } from '@src/views/index'
-import { getVersions, getLatestVersion } from '@api'
+import { getVersions, getLatestVersion } from '@query'
 import { VersionsContextProvider, CurrentVersionContextProvider } from '@src/contexts'
 
 export async function getStaticProps () {

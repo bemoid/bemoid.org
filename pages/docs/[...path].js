@@ -1,7 +1,7 @@
 import { array, string, object, node } from 'prop-types'
 
 import { DocsSingleView } from '@src/views/docs/single'
-import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from '@api'
+import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from '@query'
 import {
   DocsContextProvider,
   DocsByGroupContextProvider,

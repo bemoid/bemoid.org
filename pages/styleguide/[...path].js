@@ -1,8 +1,8 @@
 import { string, object, node } from 'prop-types'
 
 import { StyleguideSingleView } from '@src/views/styleguide/single'
-import { getVersions, getStyleguide, getAllStyleguides, getAllDocs, getAllDocsByGroup } from '@api'
 import { VersionsContextProvider, CurrentVersionContextProvider } from '@src/contexts'
+import { getVersions, getStyleguide, getAllStyleguides, getAllDocs, getAllDocsByGroup } from '@query'
 
 export async function getStaticProps ({ params }) {
   const [version, slug] = params.path
