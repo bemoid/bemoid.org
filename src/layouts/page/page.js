@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { string, node, element } from 'prop-types'
 
 import { Layout } from '@src/layouts'
-import { Header, Callout, SelectVersion } from '@src/components'
+import { Header, Callout, SearchBar, SelectVersion } from '@src/components'
 import { VersionsContext, CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './page.styled'
@@ -21,7 +21,8 @@ export const PageLayout = ({
   return (
     <Layout title={title} description={description}>
       <Header
-        navbarAside={<SelectVersion versions={versions} currentVersion={currentVersion} />}
+        navbarAsideStart={<SelectVersion versions={versions} currentVersion={currentVersion} />}
+        navbarContent={<SearchBar />}
         variant={['withPadding']}
       >
         <Callout heading="Documentation">

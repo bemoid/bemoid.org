@@ -3,7 +3,15 @@ import styled from '@emotion/styled'
 import { Input } from '@src/components/input/input'
 
 export const InputSearch = styled(Input)`
-  padding: 18px 32px;
+  position: relative;
+  z-index: 0;
+  padding: 14px 27px;
   border: 0;
-  border-bottom: 1px solid #d2d2d9;
+  color: #fff;
+  background: linear-gradient(90deg, #24202e 0%, #3f3c46 100%);
+  outline: 0;
+
+  &::placeholder {
+    color: #a4a2b3;
+  }
 `

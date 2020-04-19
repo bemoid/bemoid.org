@@ -4,7 +4,7 @@ export const Navigation = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 18px;
 
   & > * + * {
     margin-top: 3px;

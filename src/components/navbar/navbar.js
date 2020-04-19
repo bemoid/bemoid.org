@@ -6,34 +6,40 @@ import { CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './navbar.styled'
 
-export const Navbar = ({ aside }) => {
+export const Navbar = ({ content, asideStart, asideEnd }) => {
   const { currentVersion } = useContext(CurrentVersionContext)
 
-  const [active, setActive] = useState(false)
+  const [activeOffcanvas, setActiveOffcanvas] = useState(false)
 
   return (
     <Styled.Wrapper>
       <Styled.Body>
-        <Styled.Aside>
+        <Styled.AsideStart>
           <a href="/" aria-label="Homepage">
             <Styled.Logo src='/images/bemoid-logo.svg' alt="Bemoid - A component-oriented SASS framework" />
           </a>
 
-          {aside}
-        </Styled.Aside>
+          {asideStart}
+        </Styled.AsideStart>
 
-        <Styled.Content>
-          <Styled.Nav items={[
-            { title: 'Guide', href: `/guide/${currentVersion}` },
-            { title: 'Documentation', href: `/docs/${currentVersion}` },
-            { title: 'API Reference', href: `/reference/${currentVersion}` },
-          ]} />
+        {content && (
+          <Styled.Content>
+            {content}
+          </Styled.Content>
+        )}
 
-          <Styled.Button onClick={() => setActive(!active)} />
-        </Styled.Content>
+        <Styled.AsideEnd>
+          {asideEnd && (
+            <Styled.Sidebar>
+              {asideEnd}
+            </Styled.Sidebar>
+          )}
+
+          <Styled.Button onClick={() => setActiveOffcanvas(!activeOffcanvas)} />
+        </Styled.AsideEnd>
       </Styled.Body>
 
-      <Styled.Offcanvas active={active}>
+      <Styled.Offcanvas active={activeOffcanvas}>
         <MenuMobile items={[
           { title: 'Guide', href: `/guide/${currentVersion}` },
           { title: 'Documentation', href: `/docs/${currentVersion}` },
@@ -46,9 +52,13 @@ export const Navbar = ({ aside }) => {
 }
 
 Navbar.propTypes = {
-  aside: element,
+  asideStart: element,
+  content: element,
+  asideEnd: element,
 }
 
 Navbar.defaultProps = {
-  aside: null,
+  asideStart: null,
+  content: null,
+  asideEnd: null,
 }

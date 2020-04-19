@@ -4,12 +4,14 @@ import * as Styled from './input-search.styled'
 
 export const InputSearch = ({ defaultValue, placeholder, className, onChange }) => {
   return (
-    <Styled.InputSearch
-      defaultValue={defaultValue}
-      placeholder={placeholder}
-      className={className}
-      onChange={onChange}
-    />
+    <>
+      <Styled.InputSearch
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        className={className}
+        onChange={onChange}
+      />
+    </>
   )
 }
 
@@ -24,5 +26,5 @@ InputSearch.defaultProps = {
   defaultValue: '',
   placeholder: '',
   className: '',
-  onChange: () => {},
+  onChange: () => { },
 }
