@@ -24,7 +24,7 @@ export const SearchResults = ({ results, loading }) => {
     <Styled.SearchResults>
       {!loading && (
         <>
-          {(results.length > 0) ? (
+          {results.length > 0 ? (
             <Styled.List>
               {results.map((result, index) => (
                 <Styled.Item key={index}>
@@ -41,12 +41,12 @@ export const SearchResults = ({ results, loading }) => {
               ))}
             </Styled.List>
           ) : (
-              <Styled.List>
-                <Styled.Item>
-                  <Styled.Message>No results found</Styled.Message>
-                </Styled.Item>
-              </Styled.List>
-            )}
+            <Styled.List>
+              <Styled.Item>
+                <Styled.Message>No results found</Styled.Message>
+              </Styled.Item>
+            </Styled.List>
+          )}
 
           <Styled.Footer>
             <Styled.Logo src="/images/algolia-search-by-logo.svg" />

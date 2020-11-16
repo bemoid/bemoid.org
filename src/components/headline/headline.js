@@ -7,12 +7,12 @@ export const Headline = ({ heading, children }) => {
     <Styled.Headline>
       <h2>{heading}</h2>
 
-      <div dangerouslySetInnerHTML={{ __html: children }} />
+      {children && <div dangerouslySetInnerHTML={{ __html: children }} />}
     </Styled.Headline>
   )
 }
 
 Headline.propTypes = {
   heading: string.isRequired,
-  children: node.isRequired,
+  children: node,
 }

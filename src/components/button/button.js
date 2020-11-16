@@ -2,20 +2,9 @@ import * as Styled from './button.styled'
 
 import { string, bool, node } from 'prop-types'
 
-export const Button = ({
-  href,
-  size,
-  expand,
-  className,
-  children,
-}) => {
+export const Button = ({ href, size, expand, className, children }) => {
   return (
-    <Styled.Button
-      href={href}
-      size={size}
-      expand={expand}
-      className={className}
-    >
+    <Styled.Button href={href} size={size} expand={expand} className={className}>
       {children}
     </Styled.Button>
   )

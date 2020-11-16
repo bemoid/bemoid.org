@@ -2,6 +2,7 @@ import { string, node } from 'prop-types'
 import { useContext } from 'react'
 
 import { Head } from '@src/layouts'
+import { Footer } from '@src/components'
 import { CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './layout.styled'
@@ -18,6 +19,8 @@ export const Layout = ({ title, description, children }) => {
       />
 
       {children}
+
+      <Footer />
     </Styled.Layout>
   )
 }

@@ -16,5 +16,4 @@ export const Headline = styled.div`
       margin-top: 9px;
     }
   }
-
 `

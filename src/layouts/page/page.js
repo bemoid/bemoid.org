@@ -2,19 +2,12 @@ import { useContext } from 'react'
 import { string, node, element } from 'prop-types'
 
 import { Layout } from '@src/layouts'
-import { Header, Callout, SearchBar, SelectVersion } from '@src/components'
+import { Footer, Header, Callout, SearchBar, SelectVersion } from '@src/components'
 import { VersionsContext, CurrentVersionContext } from '@src/contexts'
 
 import * as Styled from './page.styled'
 
-export const PageLayout = ({
-  title,
-  description,
-  aside,
-  sidebar,
-  headline,
-  children,
-}) => {
+export const PageLayout = ({ title, description, aside, sidebar, headline, children }) => {
   const { versions } = useContext(VersionsContext)
   const { currentVersion } = useContext(CurrentVersionContext)
 
@@ -25,9 +18,7 @@ export const PageLayout = ({
         navbarContent={<SearchBar />}
         variant={['withPadding']}
       >
-        <Callout heading="Documentation">
-          A living components documentation of the Bemoid SCSS framework.
-        </Callout>
+        <Callout heading="Documentation">A living components documentation of the Bemoid SCSS framework.</Callout>
       </Header>
 
       <Styled.Main>
@@ -40,9 +31,7 @@ export const PageLayout = ({
             <Styled.Content>{children}</Styled.Content>
 
             <Styled.Aside>
-              <Styled.AsideTrack>
-                {aside}
-              </Styled.AsideTrack>
+              <Styled.AsideTrack>{aside}</Styled.AsideTrack>
             </Styled.Aside>
           </Styled.Body>
         </Styled.Wrapper>

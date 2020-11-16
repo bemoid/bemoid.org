@@ -1,4 +1,4 @@
-import { string, object } from 'prop-types'
+import { node, string, object } from 'prop-types'
 import { renderToString } from 'react-dom/server'
 
 import { Example } from '@src/components'
@@ -16,17 +16,26 @@ const renderShortcodes = (content, shortcodes, componentProvider) => {
   return content
 }
 
-export const Content = ({ content, shortcodes }) => {
-  content = renderShortcodes(content, shortcodes.examples, (html) => (
-    <Example html={html} />
-  ))
+export const Content = ({ content, shortcodes, children }) => {
+  if (shortcodes) {
+    content = renderShortcodes(content, shortcodes.examples, (html) => (
+      <Example html={html} />
+    ))
+  }
 
-  return (
-    <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
-  )
+  if (content) {
+    return (
+      <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
+    )
+  } else {
+    return (
+      <Styled.Content>{children}</Styled.Content>
+    )
+  }
 }
 
 Content.propTypes = {
   content: string.isRequired,
   shortcodes: object,
+  children: node,
 }

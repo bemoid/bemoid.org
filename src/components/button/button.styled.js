@@ -14,24 +14,30 @@ export const Button = styled.a`
   padding: 0.5em 0.8em;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
-  ${({ size }) => size === 'medium' && css`
-    @media (min-width: 768px) {
-      padding: 0.6em 1em;
-    }
-  `}
+  ${({ size }) =>
+    size === 'medium' &&
+    css`
+      @media (min-width: 768px) {
+        padding: 0.6em 1em;
+      }
+    `}
 
-  ${({ size }) => size === 'large' && css`
-    @media (min-width: 768px) {
-      padding: 0.8em 1.2em;
-    }
+  ${({ size }) =>
+    size === 'large' &&
+    css`
+      @media (min-width: 768px) {
+        padding: 0.8em 1.2em;
+      }
 
-    @media (min-width: 992px) {
-      padding: 1em 1.4em;
-    }
-  `}
+      @media (min-width: 992px) {
+        padding: 1em 1.4em;
+      }
+    `}
 
-  ${({ expand }) => expand && css`
-    display: block;
-    width: 100%;
-  `}
+  ${({ expand }) =>
+    expand &&
+    css`
+      display: block;
+      width: 100%;
+    `}
 `
