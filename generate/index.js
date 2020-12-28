@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 // This file has one simple responsibility.
 // Collects all generators and run
 // them to generate data files.

@@ -6,7 +6,7 @@
     "dev": "npm run generate && next dev",
     "build": "npm run generate && next build && next export",
     "start": "npm run generate && next start",
-    "generate": "node generate/index.js",
+    "generate": "env-cmd node generate/index.js",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest"
   },
@@ -18,7 +18,7 @@
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
     "algoliasearch": "^4.8.3",
-    "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
     "fast-glob": "^3.2.4",
     "front-matter": "^4.0.2",
     "fs-extra": "^9.0.1",
