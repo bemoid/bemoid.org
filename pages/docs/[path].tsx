@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { DocsIndexView } from 'src/views/docs/index'
-import { getVersions, getAllDocs, getAllDocsByGroup } from 'query'
+import { getVersions, getAllDocs, getAllDocsByGroup } from 'lib'
 import {
   DocsContextProvider,
   DocsByGroupContextProvider,
@@ -10,7 +10,7 @@ import {
   CurrentVersionContextProvider,
 } from 'src/contexts'
 
-import { DocsGroupInterface, DocsInterface } from 'interfaces/docs'
+import type { DocsGroupInterface, DocsInterface } from 'interfaces/docs'
 
 type DocsIndexContext = {
   versions: string[]
@@ -24,7 +24,7 @@ type DocsIndexProps = {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const version = String(params.path)
+  const version = params.path
 
   const versions = await getVersions()
   const allDocs = await getAllDocs(version)

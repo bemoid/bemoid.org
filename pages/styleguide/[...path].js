@@ -11,7 +11,7 @@ import {
   getAllStyleguides,
   getAllDocs,
   getAllDocsByGroup,
-} from 'query'
+} from 'lib'
 
 export async function getStaticProps({ params }) {
   const [version, slug] = params.path

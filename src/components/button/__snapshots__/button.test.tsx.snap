@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class=" css-ybdpjn"
+    data-testid="button"
+    href="https://bemoid.org/"
+  >
+    Button
+  </a>
+</DocumentFragment>
+`;

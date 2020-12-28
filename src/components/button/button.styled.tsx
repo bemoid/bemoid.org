@@ -1,7 +1,10 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-export const Button = styled.a`
+export const Button = styled.a<{
+  size: 'medium' | 'large'
+  expand: boolean
+}>`
   position: relative;
   cursor: pointer;
   display: inline-block;

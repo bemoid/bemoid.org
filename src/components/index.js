@@ -1,4 +1,4 @@
-export { Button } from './button/button'
+export { Button } from 'src/components/button'
 export { ButtonFill } from './button-fill/button-fill'
 export { ButtonHollow } from './button-hollow/button-hollow'
 export { Navbar } from './navbar/navbar'
