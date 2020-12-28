@@ -35,7 +35,11 @@ export const SearchResults = ({ results, loading }) => {
                       <div>{result.attributes.title}</div>
                     </Styled.Heading>
 
-                    <Styled.Content dangerouslySetInnerHTML={{ __html: preview(result._highlightResult.body.value) }} />
+                    <Styled.Content
+                      dangerouslySetInnerHTML={{
+                        __html: preview(result._highlightResult.body.value),
+                      }}
+                    />
                   </Styled.Link>
                 </Styled.Item>
               ))}
