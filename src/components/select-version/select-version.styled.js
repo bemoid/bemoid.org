@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { Select } from '@src/components'
+import { Select } from 'src/components'
 
 export const SelectVersion = styled(Select)`
   color: #fff;

@@ -7,20 +7,19 @@ export const Example = styled.div`
 export const View = styled.div`
   padding: 18px;
 
-  & > * + * {
-    margin-top: 9px;
-  }
-
   .flex,
   .waffle,
   .gutter {
-    font-size: 16px;
-    line-height: 36px;
-
     & > * {
-      background-color: #f4f2f5;
-      text-align: center;
-      outline: 1px solid #d2d2d9;
+      &::before {
+        content: attr(data-text);
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #f4f2f5;
+        text-align: center;
+        outline: 1px solid #d2d2d9;
+      }
     }
   }
 `

@@ -1,20 +1,45 @@
-import { array, string, object, node } from 'prop-types'
+import { FC } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-import { DocsSingleView } from '@src/views/docs/single'
-import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from '@query'
+import { DocsSingleView } from 'src/views/docs/single'
+import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from 'query'
 import {
   DocsContextProvider,
   DocsByGroupContextProvider,
   VersionsContextProvider,
   CurrentVersionContextProvider,
-} from '@src/contexts'
+} from 'src/contexts'
 
-export async function getStaticProps ({ params }) {
+import {
+  DocsInterface,
+  DocsGroupInterface,
+  DocsHeadingsInterface,
+  DocsAttributesInterface,
+  DocsShortcodesInterface,
+} from 'interfaces/docs'
+
+type DocsSingleContext = {
+  versions: string[]
+  currentVersion: string
+  allDocs: DocsInterface[]
+  allDocsByGroup: DocsGroupInterface[]
+}
+
+type DocsSingleProps = {
+  title: DocsAttributesInterface['title']
+  description: DocsAttributesInterface['description']
+  body: DocsInterface['body']
+  shortcodes: DocsShortcodesInterface
+  headings: DocsHeadingsInterface[]
+  context: DocsSingleContext
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const [version, slug] = params.path
 
   const versions = await getVersions()
   const docs = await getDocs(version, slug)
-  const allDocs = await getAllDocs(version, slug)
+  const allDocs = await getAllDocs(version)
   const allDocsByGroup = await getAllDocsByGroup(version)
 
   return {
@@ -30,28 +55,30 @@ export async function getStaticProps ({ params }) {
       shortcodes: docs.attributes.shortcodes,
       headings: docs.attributes.headings,
       body: docs.body,
-    }
+    },
   }
 }
 
-export async function getStaticPaths () {
+export const getStaticPaths: GetStaticPaths = async () => {
   let paths = []
   const versions = await getVersions()
 
   for (const version of versions) {
     const docs = await getAllDocs(version)
 
-    paths = paths.concat(docs.map((item) => ({
-      params: {
-        path: [version, item.attributes.slug],
-      }
-    })))
+    paths = paths.concat(
+      docs.map((item) => ({
+        params: {
+          path: [version, item.attributes.slug],
+        },
+      }))
+    )
   }
 
   return { paths, fallback: false }
 }
 
-const DocsSingle = ({
+const DocsSingle: FC<DocsSingleProps> = ({
   title,
   description,
   shortcodes,
@@ -79,16 +106,6 @@ const DocsSingle = ({
       </CurrentVersionContextProvider>
     </VersionsContextProvider>
   )
-}
-
-DocsSingle.propTypes = {
-  title: string.isRequired,
-  description: string.isRequired,
-  shortcodes: object,
-  headings: array,
-  body: string.isRequired,
-  context: object.isRequired,
-  children: node,
 }
 
 export default DocsSingle

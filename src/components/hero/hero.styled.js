@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { ButtonHollow } from '@src/components'
+import { ButtonHollow } from 'src/components'
 
 export const Wrapper = styled.div`
   position: relative;

@@ -1,7 +1,7 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { Button } from '@src/components'
+import { Button } from 'src/components'
 
 export const ButtonFill = styled(Button)`
   ${({ variant }) =>

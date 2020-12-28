@@ -1,6 +1,6 @@
 import { string, node } from 'prop-types'
 
-import { ButtonHollow } from '@src/components'
+import { ButtonHollow } from 'src/components'
 
 import * as Styled from './callout.styled'
 

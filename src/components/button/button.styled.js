@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 export const Button = styled.a`
@@ -12,7 +12,8 @@ export const Button = styled.a`
   text-align: center;
   font-size: 18px;
   padding: 0.5em 0.8em;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
 
   ${({ size }) =>
     size === 'medium' &&

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { Input } from '@src/components/input/input'
+import { Input } from 'src/components/input/input'
 
 export const InputSearch = styled(Input)`
   position: relative;

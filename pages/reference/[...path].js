@@ -1,10 +1,19 @@
 import { string, object, node } from 'prop-types'
 
-import { ReferenceSingleView } from '@src/views/reference/single'
-import { VersionsContextProvider, CurrentVersionContextProvider } from '@src/contexts'
-import { getVersions, getReference, getAllReference, getAllDocs, getAllDocsByGroup } from '@query'
+import { ReferenceSingleView } from 'src/views/reference/single'
+import {
+  VersionsContextProvider,
+  CurrentVersionContextProvider,
+} from 'src/contexts'
+import {
+  getVersions,
+  getReference,
+  getAllReference,
+  getAllDocs,
+  getAllDocsByGroup,
+} from 'query'
 
-export async function getStaticProps ({ params }) {
+export async function getStaticProps({ params }) {
   const [version, type, slug] = params.path
 
   const versions = await getVersions()
@@ -26,18 +35,20 @@ export async function getStaticProps ({ params }) {
   }
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   let paths = []
   const versions = await getVersions()
 
   for (const version of versions) {
     const references = await getAllReference(version)
 
-    paths = paths.concat(references.map((item) => ({
-      params: {
-        path: [version, item.context.type, item.context.name],
-      },
-    })))
+    paths = paths.concat(
+      references.map((item) => ({
+        params: {
+          path: [version, item.context.type, item.context.name],
+        },
+      }))
+    )
   }
 
   return { paths, fallback: false }

@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 
-import { useSearch } from '@src/hooks'
-import { CurrentVersionContext } from '@src/contexts'
-import { InputSearch, SearchResults } from '@src/components'
+import { useSearch } from 'src/hooks'
+import { CurrentVersionContext } from 'src/contexts'
+import { InputSearch, SearchResults } from 'src/components'
 
 import * as Styled from './search-bar.styled'
 
@@ -18,12 +18,15 @@ export const SearchBar = () => {
         onChange={(event) => setQuery(event.target.value)}
       />
 
-      {(query) && (
-        <SearchResults loading={loading} results={results.map((item) => {
-          item.href = `/docs/${currentVersion}/${item.attributes.slug}`
+      {query && (
+        <SearchResults
+          loading={loading}
+          results={results.map((item) => {
+            item.href = `/docs/${currentVersion}/${item.attributes.slug}`
 
-          return item
-        })} />
+            return item
+          })}
+        />
       )}
     </Styled.SearchBar>
   )

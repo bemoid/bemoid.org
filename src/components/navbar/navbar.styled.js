@@ -1,8 +1,8 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { Drawer } from '@src/components/drawer/drawer'
-import { Hamburger } from '@src/components/hamburger/hamburger'
+import { Drawer } from 'src/components/drawer/drawer'
+import { Hamburger } from 'src/components/hamburger/hamburger'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   width: 100%;
 
   &:before {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     height: 6px;
@@ -109,8 +109,10 @@ export const Offcanvas = styled(Drawer)`
     display: none;
   }
 
-  ${({ active }) => active && css`
-    transform: translateY(0);
-    box-shadow: 0px 12px 18px 0px rgba(0, 0, 0, 0.2);
-  `}
+  ${({ active }) =>
+    active &&
+    css`
+      transform: translateY(0);
+      box-shadow: 0px 12px 18px 0px rgba(0, 0, 0, 0.2);
+    `}
 `

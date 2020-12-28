@@ -1,8 +1,8 @@
-import { node } from 'prop-types'
+import { FC } from 'react'
 
 import * as Styled from './footer.styled'
 
-export const Footer = ({ children }) => {
+export const Footer: FC = () => {
   return (
     <Styled.Footer>
       <Styled.Content>
@@ -11,8 +11,4 @@ export const Footer = ({ children }) => {
       </Styled.Content>
     </Styled.Footer>
   )
-}
-
-Footer.propTypes = {
-  children: node.isRequired,
 }

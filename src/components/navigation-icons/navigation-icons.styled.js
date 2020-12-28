@@ -11,9 +11,7 @@ export const Navigation = styled.ul`
   }
 `
 
-export const Item = styled.li`
-
-`
+export const Item = styled.li``
 
 export const Icon = styled.span`
   svg {

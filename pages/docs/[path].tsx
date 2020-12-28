@@ -1,16 +1,30 @@
-import { object, node } from 'prop-types'
+import { FC } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-import { DocsIndexView } from '@src/views/docs/index'
-import { getVersions, getAllDocs, getAllDocsByGroup } from '@query'
+import { DocsIndexView } from 'src/views/docs/index'
+import { getVersions, getAllDocs, getAllDocsByGroup } from 'query'
 import {
   DocsContextProvider,
   DocsByGroupContextProvider,
   VersionsContextProvider,
   CurrentVersionContextProvider,
-} from '@src/contexts'
+} from 'src/contexts'
 
-export async function getStaticProps ({ params }) {
-  const version = params.path
+import { DocsGroupInterface, DocsInterface } from 'interfaces/docs'
+
+type DocsIndexContext = {
+  versions: string[]
+  currentVersion: string
+  allDocs: DocsInterface[]
+  allDocsByGroup: DocsGroupInterface[]
+}
+
+type DocsIndexProps = {
+  context: DocsIndexContext
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const version = String(params.path)
 
   const versions = await getVersions()
   const allDocs = await getAllDocs(version)
@@ -24,41 +38,34 @@ export async function getStaticProps ({ params }) {
         allDocs,
         allDocsByGroup,
       },
-    }
+    },
   }
 }
 
-export async function getStaticPaths () {
+export const getStaticPaths: GetStaticPaths = async () => {
   const versions = await getVersions()
 
   const paths = versions.map((version) => ({
     params: {
       path: version,
-    }
+    },
   }))
 
   return { paths, fallback: false }
 }
 
-const DocsIndex = ({ context, children }) => {
+const DocsIndex: FC<DocsIndexProps> = ({ context, children }) => {
   return (
     <VersionsContextProvider value={context.versions}>
       <CurrentVersionContextProvider value={context.currentVersion}>
         <DocsByGroupContextProvider value={context.allDocsByGroup}>
           <DocsContextProvider value={context.allDocs}>
-            <DocsIndexView>
-              {children}
-            </DocsIndexView>
+            <DocsIndexView>{children}</DocsIndexView>
           </DocsContextProvider>
         </DocsByGroupContextProvider>
       </CurrentVersionContextProvider>
     </VersionsContextProvider>
   )
-}
-
-DocsIndex.propTypes = {
-  context: object.isRequired,
-  children: node,
 }
 
 export default DocsIndex

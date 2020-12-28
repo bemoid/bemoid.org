@@ -1,10 +1,19 @@
 import { string, object, node } from 'prop-types'
 
-import { StyleguideSingleView } from '@src/views/styleguide/single'
-import { VersionsContextProvider, CurrentVersionContextProvider } from '@src/contexts'
-import { getVersions, getStyleguide, getAllStyleguides, getAllDocs, getAllDocsByGroup } from '@query'
+import { StyleguideSingleView } from 'src/views/styleguide/single'
+import {
+  VersionsContextProvider,
+  CurrentVersionContextProvider,
+} from 'src/contexts'
+import {
+  getVersions,
+  getStyleguide,
+  getAllStyleguides,
+  getAllDocs,
+  getAllDocsByGroup,
+} from 'query'
 
-export async function getStaticProps ({ params }) {
+export async function getStaticProps({ params }) {
   const [version, slug] = params.path
 
   const versions = await getVersions()
@@ -22,22 +31,24 @@ export async function getStaticProps ({ params }) {
       },
       title: styleguide.header,
       description: styleguide.description,
-    }
+    },
   }
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   let paths = []
   const versions = await getVersions()
 
   for (const version of versions) {
     const styleguides = await getAllStyleguides(version)
 
-    paths = paths.concat(styleguides.map((item) => ({
-      params: {
-        path: [version, item.slug]
-      }
-    })))
+    paths = paths.concat(
+      styleguides.map((item) => ({
+        params: {
+          path: [version, item.slug],
+        },
+      }))
+    )
   }
 
   return { paths, fallback: false }

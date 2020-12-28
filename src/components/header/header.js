@@ -1,17 +1,25 @@
 import { arrayOf, node, string, element } from 'prop-types'
 
-import { Navbar } from '@src/components'
+import { Navbar } from 'src/components'
 
 import * as Styled from './header.styled'
 
-export const Header = ({ navbarAsideStart, navbarContent, navbarAsideEnd, variant, children }) => {
+export const Header = ({
+  navbarAsideStart,
+  navbarContent,
+  navbarAsideEnd,
+  variant,
+  children,
+}) => {
   return (
     <Styled.Wrapper>
-      <Navbar asideStart={navbarAsideStart} content={navbarContent} asideEnd={navbarAsideEnd} />
+      <Navbar
+        asideStart={navbarAsideStart}
+        content={navbarContent}
+        asideEnd={navbarAsideEnd}
+      />
 
-      <Styled.Body variant={variant}>
-        {children}
-      </Styled.Body>
+      <Styled.Body variant={variant}>{children}</Styled.Body>
     </Styled.Wrapper>
   )
 }

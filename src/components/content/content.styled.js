@@ -12,7 +12,12 @@ export const Content = styled.div`
     margin-top: 1.2em;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     position: relative;
     font-family: inherit;
     font-weight: 700;

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 export const Navigation = styled.div`
@@ -39,7 +39,7 @@ export const Link = styled.a`
   transition: all 0.2s ease-in-out;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: -32px;
@@ -58,10 +58,12 @@ export const Link = styled.a`
     }
   }
 
-  ${({ active }) => active && css`
-    &:before {
-      opacity: 1;
-      background-color: #ffc371;
-    }
-  `}
+  ${({ active }) =>
+    active &&
+    css`
+      &:before {
+        opacity: 1;
+        background-color: #ffc371;
+      }
+    `}
 `

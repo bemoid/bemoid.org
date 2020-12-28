@@ -1,7 +1,6 @@
-
 import { string, object } from 'prop-types'
 
-import { PageLayout } from '@src/layouts'
+import { PageLayout } from 'src/layouts'
 
 export const ReferenceSingleView = ({ context, type, title }) => {
   return (
@@ -12,9 +11,7 @@ export const ReferenceSingleView = ({ context, type, title }) => {
       excerpt={`A living components documentation of the Bemoid SCSS framework.`}
       context={context}
     >
-      <main>
-        {title}
-      </main>
+      <main>{title}</main>
     </PageLayout>
   )
 }
