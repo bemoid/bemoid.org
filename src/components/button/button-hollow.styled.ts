@@ -1,9 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { Button } from 'src/components'
+import { Button } from '.'
 
-export const ButtonHollow = styled(Button)`
+export const ButtonHollow = styled(Button)<{
+  variant: 'primary' | 'neutral'
+}>`
   border: 2px solid transparent;
 
   ${({ variant }) =>

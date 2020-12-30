@@ -1,9 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { Button } from 'src/components'
+import { Button } from '.'
 
-export const ButtonFill = styled(Button)`
+export const ButtonFill = styled(Button)<{
+  variant: 'primary'
+}>`
   ${({ variant }) =>
     variant === 'primary' &&
     css`

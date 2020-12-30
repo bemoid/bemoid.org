@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons components matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class=" css-ybdpjn"
+    data-testid="button"
+    href="https://bemoid.org/"
+  >
+    Button
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Buttons components matches snapshot 2`] = `
+<DocumentFragment>
+  <a
+    class="css-f6v8k"
+    data-testid="button"
+    href="https://bemoid.org/"
+  >
+    Button Fill
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Buttons components matches snapshot 3`] = `
+<DocumentFragment>
+  <a
+    class="css-xmjzch"
+    data-testid="button"
+    href="https://bemoid.org/"
+  >
+    Button Fill
+  </a>
+</DocumentFragment>
+`;

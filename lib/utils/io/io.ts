@@ -4,9 +4,6 @@ import fse from 'fs-extra'
 
 /**
  * Gets collection of contents of files in the path.
- *
- * @param {string} path
- * @returns object[]
  */
 export const readFiles = async (path: string) => {
   const files = await fg(path)
@@ -20,9 +17,6 @@ export const readFiles = async (path: string) => {
 
 /**
  * Gets content of the file.
- *
- * @param {string} path
- * @returns object
  */
 export const readFile = async (path: string) => {
   const data = await fse.readJson(path)
@@ -32,9 +26,6 @@ export const readFile = async (path: string) => {
 
 /**
  * Gets data collection of all Bemoid's api.
- *
- * @param {string} path
- * @returns object[]
  */
 export const readDirectory = async (path: string) => {
   const files = await fs.readdirSync(path, { withFileTypes: true })

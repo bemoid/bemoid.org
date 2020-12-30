@@ -27,8 +27,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const version = params.path
 
   const versions = await getVersions()
-  const allDocs = await getAllDocs(version)
-  const allDocsByGroup = await getAllDocsByGroup(version)
+  const allDocs = await getAllDocs(String(version))
+  const allDocsByGroup = await getAllDocsByGroup(String(version))
 
   return {
     props: {

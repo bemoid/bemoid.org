@@ -2,7 +2,7 @@ import { forwardRef, ReactNode } from 'react'
 
 import * as Styled from './button.styled'
 
-type ButtonProps = {
+export type ButtonProps = {
   href: string
   size?: 'medium' | 'large'
   expand?: boolean
