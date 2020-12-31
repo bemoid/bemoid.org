@@ -5,6 +5,6 @@ module.exports = {
     public: path.resolve('public'),
     data: path.resolve('resources/data'),
     sass: path.resolve('resources/sass'),
-    bemoid: path.resolve('node_modules/@bemoid/bemoid')
-  }
+    bemoid: path.resolve('node_modules/@bemoid/bemoid'),
+  },
 }

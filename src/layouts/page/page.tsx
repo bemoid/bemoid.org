@@ -4,11 +4,11 @@ import { Layout } from 'src/layouts'
 import { Header, Callout, SearchBar, SelectVersion } from 'src/components'
 import { VersionsContext, CurrentVersionContext } from 'src/contexts'
 
-import { DocsAttributesInterface } from 'interfaces/docs'
+import { DocsAttributesInterface } from 'src/interfaces/docs'
 
 import * as Styled from './page.styled'
 
-type PageLayoutProps = {
+export type PageLayoutProps = {
   title: DocsAttributesInterface['title']
   description: DocsAttributesInterface['description']
   aside?: ReactElement

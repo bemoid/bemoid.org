@@ -1,7 +1,7 @@
-import algoliaClient from 'algoliasearch/lite'
 import { useState, useEffect } from 'react'
+import algoliaClient from 'algoliasearch/lite'
 
-export const useSearch = (version) => {
+export const useSearch = (version: string) => {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
@@ -11,7 +11,7 @@ export const useSearch = (version) => {
     process.env.ALGOLIA_SEARCH_KEY
   ).initIndex(`${process.env.ALGOLIA_INDEX_PREFIX}_${version}`)
 
-  const search = (query, params = {}) => {
+  const search = (query: string, params: object = {}) => {
     return algolia.search(query, {
       ...params,
     })

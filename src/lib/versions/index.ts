@@ -1,5 +1,5 @@
 import { paths } from 'app.config'
-import { readDirectory } from 'lib/utils/io'
+import { readDirectory } from 'src/lib/utils/io'
 
 /**
  * Gets collection of Bemoid's versions.

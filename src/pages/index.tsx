@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { GetStaticProps } from 'next'
 
 import { IndexView } from 'src/views/index'
-import { getVersions, getLatestVersion } from 'lib'
+import { getVersions, getLatestVersion } from 'src/lib'
 import {
   VersionsContextProvider,
   CurrentVersionContextProvider,

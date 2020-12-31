@@ -32,7 +32,7 @@ exports.crawlerShortcodes = (shortcode, { version, content }) => {
       const html = fs.readFileSync(filepath).toString()
 
       Object.assign(shortcodes, {
-        [placeholder]: html
+        [placeholder]: html,
       })
     }
   } while (matches)

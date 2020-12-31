@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { DocsIndexView } from 'src/views/docs/index'
-import { getVersions, getAllDocs, getAllDocsByGroup } from 'lib'
+import { getVersions, getAllDocs, getAllDocsByGroup } from 'src/lib'
 import {
   DocsContextProvider,
   DocsByGroupContextProvider,
@@ -10,7 +10,7 @@ import {
   CurrentVersionContextProvider,
 } from 'src/contexts'
 
-import type { DocsGroupInterface, DocsInterface } from 'interfaces/docs'
+import type { DocsGroupInterface, DocsInterface } from 'src/interfaces/docs'
 
 type DocsIndexContext = {
   versions: string[]

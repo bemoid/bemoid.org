@@ -7,7 +7,7 @@ import { CurrentVersionContext } from 'src/contexts'
 
 import * as Styled from './layout.styled'
 
-type LayoutProps = {
+export type LayoutProps = {
   title?: string
   description?: string
 }

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { DocsHeadingsInterface } from 'interfaces/docs'
+import { DocsHeadingsInterface } from 'src/interfaces/docs'
 
 import * as Styled from './table-of-content.styled'
 

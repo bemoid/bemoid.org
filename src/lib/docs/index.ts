@@ -1,8 +1,8 @@
 import { paths } from 'app.config'
-import { readFile, readFiles } from 'lib/utils/io'
-import { groupBy, sortBy } from 'lib/utils/array'
+import { readFile, readFiles } from 'src/lib/utils/io'
+import { groupBy, sortBy } from 'src/lib/utils/array'
 
-import type { DocsGroupInterface, DocsInterface } from 'interfaces/docs'
+import type { DocsGroupInterface, DocsInterface } from 'src/interfaces/docs'
 
 /**
  * Gets data collection of all documentation pages.

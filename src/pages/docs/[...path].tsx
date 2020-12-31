@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { DocsSingleView } from 'src/views/docs/single'
-import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from 'lib'
+import { getVersions, getDocs, getAllDocs, getAllDocsByGroup } from 'src/lib'
 import {
   DocsContextProvider,
   DocsByGroupContextProvider,
@@ -16,7 +16,7 @@ import type {
   DocsHeadingsInterface,
   DocsAttributesInterface,
   DocsShortcodesInterface,
-} from 'interfaces/docs'
+} from 'src/interfaces/docs'
 
 type DocsSingleContext = {
   versions: string[]

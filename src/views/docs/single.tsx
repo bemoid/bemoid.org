@@ -13,7 +13,7 @@ import {
   DocsInterface,
   DocsShortcodesInterface,
   DocsAttributesInterface,
-} from 'interfaces/docs'
+} from 'src/interfaces/docs'
 
 type DocsSingleViewProps = {
   title: DocsAttributesInterface['title']
