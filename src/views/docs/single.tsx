@@ -1,19 +1,14 @@
 import { FC } from 'react'
 
-import { PageLayout } from 'src/layouts'
-import {
-  Headline,
-  Content,
-  NavigationDocs,
-  TableOfContent,
-} from 'src/components'
+import { PageLayout } from '@/layouts'
+import { Headline, Content, NavigationDocs, TableOfContent } from '@/components'
 
 import {
   DocsHeadingsInterface,
   DocsInterface,
   DocsShortcodesInterface,
   DocsAttributesInterface,
-} from 'src/interfaces/docs'
+} from '@/interfaces/docs'
 
 type DocsSingleViewProps = {
   title: DocsAttributesInterface['title']

@@ -1,6 +1,6 @@
 import { string, object } from 'prop-types'
 
-import { PageLayout } from 'src/layouts'
+import { PageLayout } from '@/layouts'
 
 export const ReferenceSingleView = ({ context, type, title }) => {
   return (

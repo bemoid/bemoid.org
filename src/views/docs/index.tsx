@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
-import { PageLayout } from 'src/layouts'
-import { Headline, Content, NavigationDocs } from 'src/components'
+import { PageLayout } from '@/layouts'
+import { Headline, Content, NavigationDocs } from '@/components'
 
 export const DocsIndexView: FC = () => {
   return (

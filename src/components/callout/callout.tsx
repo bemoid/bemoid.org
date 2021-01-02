@@ -1,6 +1,8 @@
-import { forwardRef, ReactNode } from 'react'
+import { forwardRef } from 'react'
 
-import { ButtonHollow } from 'src/components'
+import { ButtonHollow } from '@/components'
+
+import type { ReactNode } from 'react'
 
 import * as Styled from './callout.styled'
 

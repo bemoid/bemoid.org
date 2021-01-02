@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { useContext } from 'react'
 
-import { Head } from 'src/layouts'
-import { Footer } from 'src/components'
-import { CurrentVersionContext } from 'src/contexts'
+import { Head } from '@/layouts'
+import { Footer } from '@/components'
+import { CurrentVersionContext } from '@/contexts'
 
 import * as Styled from './layout.styled'
 

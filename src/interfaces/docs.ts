@@ -4,8 +4,12 @@ export interface DocsHeadingsInterface {
   level: number
 }
 
+export interface DocsShortcodeInterface {
+  [key: string]: string
+}
+
 export interface DocsShortcodesInterface {
-  examples: { [key: string]: string }
+  examples?: DocsShortcodeInterface
 }
 
 export interface DocsAttributesInterface {

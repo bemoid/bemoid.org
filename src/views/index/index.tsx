@@ -1,8 +1,8 @@
 import { useContext, FC } from 'react'
-import { CurrentVersionContext } from 'src/contexts'
+import { CurrentVersionContext } from '@/contexts'
 
-import { Layout } from 'src/layouts'
-import { Header, Hero, Menu } from 'src/components'
+import { Layout } from '@/layouts'
+import { Header, Hero, Menu } from '@/components'
 
 export const IndexView: FC = () => {
   const { currentVersion } = useContext(CurrentVersionContext)

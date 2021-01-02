@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { GetStaticProps } from 'next'
 
-import { IndexView } from 'src/views/index'
-import { getVersions, getLatestVersion } from 'src/lib'
+import { IndexView } from '@/views/index'
+import { getVersions, getLatestVersion } from '@/lib'
 import {
   VersionsContextProvider,
   CurrentVersionContextProvider,
-} from 'src/contexts'
+} from '@/contexts'
 
 type IndexContext = {
   versions: string[]

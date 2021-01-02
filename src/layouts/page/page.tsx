@@ -1,10 +1,10 @@
 import { useContext, FC, ReactElement } from 'react'
 
-import { Layout } from 'src/layouts'
-import { Header, Callout, SearchBar, SelectVersion } from 'src/components'
-import { VersionsContext, CurrentVersionContext } from 'src/contexts'
+import { Layout } from '@/layouts'
+import { Header, Callout, SearchBar, SelectVersion } from '@/components'
+import { VersionsContext, CurrentVersionContext } from '@/contexts'
 
-import { DocsAttributesInterface } from 'src/interfaces/docs'
+import { DocsAttributesInterface } from '@/interfaces/docs'
 
 import * as Styled from './page.styled'
 

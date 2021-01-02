@@ -1,10 +1,8 @@
 import { paths } from 'app.config'
-import { readDirectory } from 'src/lib/utils/io'
+import { readDirectory } from '@/lib/utils/io'
 
 /**
  * Gets collection of Bemoid's versions.
- *
- * @returns string[]
  */
 export const getVersions = async (): Promise<string[]> => {
   const data = await readDirectory(paths.data)
@@ -16,8 +14,6 @@ export const getVersions = async (): Promise<string[]> => {
 
 /**
  * Gets number of Bemoid's latest version.
- *
- * @returns string
  */
 export const getLatestVersion = async (): Promise<string> => {
   const versions = (await getVersions()).map(Number)

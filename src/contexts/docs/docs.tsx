@@ -1,6 +1,6 @@
 import { createContext, useState, FC } from 'react'
 
-import type { DocsInterface } from 'src/interfaces/docs'
+import type { DocsInterface } from '@/interfaces/docs'
 
 export type DocsContextProviderProps = {
   value: DocsInterface[]

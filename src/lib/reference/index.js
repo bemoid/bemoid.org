@@ -1,4 +1,4 @@
-const { readFile, readFiles } = require('../utils/io')
+const { readFile, readFiles } = require('@/lib/utils/io')
 
 /**
  * Gets data collection of all Bemoid's API reference.

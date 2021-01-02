@@ -1,17 +1,17 @@
 import { string, object, node } from 'prop-types'
 
-import { StyleguideSingleView } from 'src/views/styleguide/single'
+import { StyleguideSingleView } from '@/views/styleguide/single'
 import {
   VersionsContextProvider,
   CurrentVersionContextProvider,
-} from 'src/contexts'
+} from '@/contexts'
 import {
   getVersions,
   getStyleguide,
   getAllStyleguides,
   getAllDocs,
   getAllDocsByGroup,
-} from 'lib'
+} from '@/lib'
 
 export async function getStaticProps({ params }) {
   const [version, slug] = params.path
