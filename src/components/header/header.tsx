@@ -10,7 +10,7 @@ export type HeaderProps = {
   navbarAsideStart?: ReactElement
   navbarContent?: ReactElement
   navbarAsideEnd?: ReactElement
-  variant: Partial<['withPadding']>
+  variant?: Partial<['withPadding']>
   children?: ReactElement
 }
 

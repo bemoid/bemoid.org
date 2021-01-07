@@ -1,12 +1,12 @@
 import { forwardRef } from 'react'
 
-import type { ReactElement } from 'react'
+import type { ReactNode } from 'react'
 
 import * as Styled from './headline.styled'
 
 export type HeadlineProps = {
   heading: string
-  children: ReactElement
+  children: ReactNode
 }
 
 export const Headline = forwardRef<HTMLDivElement, HeadlineProps>(
