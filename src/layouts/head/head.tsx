@@ -102,15 +102,6 @@ export const Head = ({ title = '', description = '', currentVersion }) => {
         property="twitter:image"
         content="https://static.bemoid.org/bemoid-social-image.jpg"
       />
-
-      {/* Stylesheets */}
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href={`/css/${currentVersion}/bemoid.css`}
-      />
-
-      {/* Additional */}
     </Helmet>
   )
 }

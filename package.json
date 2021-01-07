@@ -15,7 +15,7 @@
   "dependencies": {
     "@bemoid/bemoid/0.2": "git://github.com/bemoid/bemoid.git#v0.2.4",
     "@bemoid/bemoid/0.3": "git://github.com/bemoid/bemoid.git#v0.3.0",
-    "@bemoid/bemoid/0.4": "git://github.com/bemoid/bemoid.git#v0.4.4",
+    "@bemoid/bemoid/0.4": "git://github.com/bemoid/bemoid.git#v0.4.5",
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
