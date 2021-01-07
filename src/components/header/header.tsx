@@ -20,7 +20,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
       navbarAsideStart = null,
       navbarContent = null,
       navbarAsideEnd = null,
-      variant = ['withPadding'],
+      variant = [],
       children,
       ...rest
     },
